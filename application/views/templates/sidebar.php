@@ -9,14 +9,14 @@
           <ul class="sidebar-menu">
             <li class="menu-header">Main</li>
             <li class="dropdown active">
-              <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
+              <a href="<?php echo base_url() ?>Dashboard" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
             <li class="dropdown">
               <a href="#" class="menu-toggle nav-link has-dropdown"><i
                   data-feather="briefcase"></i><span>Master Data</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="widget-chart.html">Periode Graduasi</a></li>
-                <li><a class="nav-link" href="widget-data.html">Data Penerima Bantuan</a></li>
+                <li><a class="nav-link" href="<?php echo base_url() ?>Periode_graduasi">Periode Graduasi</a></li>
+                <li><a class="nav-link" href="">Data Penerima Bantuan</a></li>
                 <li><a class="nav-link" href="widget-data.html">Data Kriteria dan Bobot</a></li>
               </ul>
             </li>
