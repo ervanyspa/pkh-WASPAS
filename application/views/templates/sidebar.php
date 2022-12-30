@@ -5,15 +5,16 @@
 			</a>
 		</div>
 		<ul class="sidebar-menu">
+			<li class="menu-header">Main</li>
 			<li class="dropdown <?php echo ($this->uri->segment(1) == '') ? 'active' : '' ?>">
 				<a href="<?php echo base_url() ?>" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
 			</li>
-			<li class="dropdown">
+			<li class="dropdown <?php echo ($this->uri->segment(1) === 'periode_graduasi' || $this->uri->segment(1) === 'penerima_bantuan' || $this->uri->segment(1) === 'kriteria_bobot'  ) ? 'active' : '' ?>">
 				<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="briefcase"></i><span>Master Data</span></a>
 				<ul class="dropdown-menu">
-					<li class=""><a class="nav-link" href="<?php echo base_url() ?>periode_graduasi">Periode Graduasi</a></li>
-					<li class=""><a class="nav-link" href="<?php echo base_url() ?>penerima_bantuan">Data Penerima Bantuan</a></li>
-					<li class=""><a class="nav-link" href="<?php echo base_url() ?>Kriteria_bobot">Data Kriteria dan Bobot</a></li>
+					<li class="<?php echo ($this->uri->segment(1) === 'periode_graduasi') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>periode_graduasi">Periode Graduasi</a></li>
+					<li class="<?php echo ($this->uri->segment(1) === 'penerima_bantuan') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>penerima_bantuan">Data Penerima Bantuan</a></li>
+					<li class="<?php echo ($this->uri->segment(1) === 'kriteria_bobot') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>kriteria_bobot">Data Kriteria dan Bobot</a></li>
 				</ul>
 			</li>
 			<li class="dropdown">
