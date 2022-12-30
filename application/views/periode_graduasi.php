@@ -60,7 +60,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form class="" action="<?= base_url() ?>periode_graduasi/tambah_periode/<?php echo $prd['id_periode'] ?>" method="post" enctype="multipart/form-data">
+					<form class="" action="<?= base_url() ?>periode_graduasi/tambah_periode" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label>Nama Periode</label>
 							<div class="input-group">
