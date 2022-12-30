@@ -45,7 +45,7 @@
 		</div>
 	</section>
 
-	<!-- Modal with form -->
+	<!-- Tambah Kriteria -->
 	<div class="modal fade" id="tambahKriteria" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -118,6 +118,7 @@
 							</div>
 						</div>
 						<div class="form-group align-right">
+							<button type="button" class="btn btn-secondary waves-effect mr-1">Batal</button>
 							<button type="button" class="btn btn-primary waves-effect">Simpan</button>
 						</div>
 					</form>
@@ -126,7 +127,7 @@
 		</div>
 	</div>
 
-	<!-- Modal with form -->
+	<!-- Lihat Kriteria -->
 	<div class="modal fade" id="lihatKriteria" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -193,23 +194,17 @@
 								</div>
 							</div>
 						</div>
-						<div class="form-group align-right">
-							<button type="button" class="btn btn-primary waves-effect">Simpan</button>
-						</div>
-						<div class="form-group align-right">
-							<button type="button" class="btn btn-primary waves-effect">Simpan</button>
-						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Modal Edit -->
-	<div class="modal fade" id="editPenerimaBantuan" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+	<!-- Edit Data Kriteria -->
+	<div class="modal fade" id="editDataKriteria" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="formModal">Edit Data Penerima Bantuan</h5>
+					<h5 class="modal-title" id="formModal">Edit Data Kriteria</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -217,31 +212,19 @@
 				<div class="modal-body">
 					<form class="">
 						<div class="form-group">
-							<label>NIK</label>
+							<label>Kode Kriteria</label>
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="" name="nik">
 							</div>
 						</div>
 						<div class="form-group">
-							<label>Nama</label>
+							<label>Jenis Kriteria</label>
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="" name="nama">
 							</div>
 						</div>
 						<div class="form-group">
-							<label>Alamat</label>
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="alamat">
-							</div>
-						</div>
-						<div class="form-group">
-							<label>Angkatan</label>
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="angkatan">
-							</div>
-						</div>
-						<div class="form-group">
-							<label>Kategori</label>
+							<label>Atribut</label>
 							<select class="form-control">
 								<option>Option 1</option>
 								<option>Option 2</option>
@@ -249,13 +232,70 @@
 							</select>
 						</div>
 						<div class="form-group">
-							<label>Status</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-							</select>
+							<label>Bobot</label>
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="" name="nama">
+							</div>
 						</div>
 						<div class="form-group align-right">
+							<button type="button" class="btn btn-secondary waves-effect mr-1">Batal</button>
+							<button type="button" class="btn btn-primary waves-effect">Simpan</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Edit Data Rentang -->
+	<div class="modal fade" id="editDataRentang" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="formModal">Edit Data Rentang Kriteria</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form class="">
+						<div class="form-group">
+							<label>Rentang Nilai</label>
+							<div class="form-row">
+								<div class="form-group col-md-8">
+									<input type="text" class="form-control" id="" placeholder="Jenis Rentang">
+								</div>
+								<div class="form-group col-md-4">
+									<input type="text" class="form-control" id="" placeholder="Nilai">
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-8">
+									<input type="text" class="form-control" id="" placeholder="Jenis Rentang">
+								</div>
+								<div class="form-group col-md-4">
+									<input type="text" class="form-control" id="" placeholder="Nilai">
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-8">
+									<input type="text" class="form-control" id="" placeholder="Jenis Rentang">
+								</div>
+								<div class="form-group col-md-4">
+									<input type="text" class="form-control" id="" placeholder="Nilai">
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-8">
+									<input type="text" class="form-control" id="" placeholder="Jenis Rentang">
+								</div>
+								<div class="form-group col-md-4">
+									<input type="text" class="form-control" id="" placeholder="Nilai">
+								</div>
+							</div>
+						</div>
+						<div class="form-group align-right">
+							<button type="button" class="btn btn-secondary waves-effect mr-1">Batal</button>
 							<button type="button" class="btn btn-primary waves-effect">Simpan</button>
 						</div>
 					</form>
