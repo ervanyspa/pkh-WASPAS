@@ -1,13 +1,73 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Periode_graduasi extends CI_Controller {
-	
-		public function index() {
-				$this->load->view('templates/header');
-				$this->load->view('templates/sidebar');
-				$this->load->view('periode_graduasi');
-				$this->load->view('templates/footer');
-  	}
-	
+class Periode_graduasi extends CI_Controller
+{
+
+	public function index()
+	{
+		$data['periode'] = $this->Model_periode->get_periode()->result_array();
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('periode_graduasi', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function tambah_periode()
+	{
+		$nama_periode  = $this->input->post('nama_periode');
+        $tgl_dimulai   = $this->input->post('tgl_dimulai');
+        $tgl_berakhir  = $this->input->post('tgl_berakhir');
+
+		$data2 = array(
+            'nama_periode'         => $nama_periode,
+            'tgl_dimulai'          => $tgl_dimulai,
+            'tgl_berakhir'         => $tgl_berakhir,
+            
+        );
+
+		$this->db->insert('periode', $data2);
+		$this->session->set_flashdata(
+			'berhasil_periode',
+			'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+						<script type ="text/JavaScript">  
+						swal("Sukses","Data Periode Berhasil Ditambah","success"); 
+						</script>'
+		);
+
+		redirect('periode_graduasi');
+	}
+
+	public function update_periode($id_periode)
+	{
+		$nama_periode  = $this->input->post('nama_periode');
+        $tgl_dimulai   = $this->input->post('tgl_dimulai');
+        $tgl_berakhir  = $this->input->post('tgl_berakhir');
+
+		$data2 = array(
+            'nama_periode'         => $nama_periode,
+            'tgl_dimulai'          => $tgl_dimulai,
+            'tgl_berakhir'         => $tgl_berakhir,
+            
+        );
+
+		$where2 = array('id_periode' => $id_periode);
+		$this->db->update('periode', $data2, $where2);
+		
+		$this->session->set_flashdata(
+			'berhasil_periode',
+			'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+						<script type ="text/JavaScript">  
+						swal("Sukses","Data Periode Berhasil Diubah","success"); 
+						</script>'
+		);
+
+		redirect('periode_graduasi');
+	}
+
+	public function delete_periode($id_periode) {
+		
+		$this->db->delete('periode', array('id_periode' => $id_periode));
+
+	}
 }
