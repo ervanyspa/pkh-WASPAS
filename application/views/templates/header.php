@@ -31,11 +31,22 @@
 			<nav class="navbar navbar-expand-lg main-navbar sticky">
 				<div class="form-inline mr-auto">
 					<ul class="navbar-nav mr-3">
-						<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
-									collapse-btn"> <i data-feather="align-justify"></i></a></li>
-						<li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
-								<i data-feather="maximize"></i>
-							</a></li>
+						<li>
+							<a href="#" data-toggle="sidebar" class="nav-link nav-link-lg collapse-btn"> <i data-feather="align-justify"></i></a>
+						</li>
+						<li>
+							<form class="form-inline mr-auto">
+								<div class="search-element">
+									<select class="form-control">
+										<option>Pilih periode</option>
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>
+									<button class="btn bg-info text-white" type="submit">Tampilkan</button>
+								</div>
+							</form>
+						</li>
 					</ul>
 				</div>
 				<ul class="navbar-nav navbar-right">
@@ -44,10 +55,6 @@
 							<div class="dropdown-title">Hello Sarah Smith</div>
 							<a href="<?php base_url() ?> Profil" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
-							</a> <a href="timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
-								Activities
-							</a> <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
-								Settings
 							</a>
 							<div class="dropdown-divider"></div>
 							<a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
