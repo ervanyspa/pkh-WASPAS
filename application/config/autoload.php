@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Model_periode','Model_penerima');
+$autoload['model'] = array('Model_periode','Model_penerima','Model_kriteria_bobot');
