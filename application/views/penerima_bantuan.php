@@ -11,17 +11,17 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-striped dataTable" id="table-1">
+								<table class="table table-striped dataTable" id="table-1" style="width:100%">
 									<thead>
 										<tr>
-											<th>No</th>
-											<th>NIK</th>
-											<th>Nama</th>
-											<th>Alamat</th>
-											<th>Angkatan</th>
-											<th>Kategori</th>
-											<th>Status</th>
-											<th>Aksi</th>
+											<th style="width:5%">No</th>
+											<th style="width:15%">NIK</th>
+											<th style="width:20%">Nama</th>
+											<th style="width:20%">Alamat</th>
+											<th style="width:10%">Angkatan</th>
+											<th style="width:10%">Kategori</th>
+											<th style="width:10%">Status</th>
+											<th style="width:10%">Aksi</th>
 										</tr>
 									</thead>
 									<tbody>

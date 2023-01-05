@@ -17,13 +17,13 @@
 					<li class="<?php echo ($this->uri->segment(1) === 'kriteria_bobot') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>kriteria_bobot">Data Kriteria dan Bobot</a></li>
 				</ul>
 			</li>
-			<li class="dropdown">
+			<li class="dropdown <?php echo ($this->uri->segment(1) === 'peserta_graduasi') ? 'active' : '' ?>">
 				<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Proses Seleksi</span></a>
 				<ul class="dropdown-menu">
-					<li><a class="nav-link" href="<?php echo base_url() ?>peserta_graduasi">Data Peserta Graduasi</a></li>
+					<li class="<?php echo ($this->uri->segment(1) === 'peserta_graduasi') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>peserta_graduasi">Data Peserta Graduasi</a></li>
 				</ul>
 			</li>
-			<li><a class="nav-link" href="<?php echo base_url() ?>laporan_seleksi"><i data-feather="mail"></i><span>Laporan Hasil Seleksi</span></a></li>
+			<li class="<?php echo ($this->uri->segment(1) === 'laporan_seleksi') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>laporan_seleksi"><i data-feather="mail"></i><span>Laporan Hasil Seleksi</span></a></li>
 		</ul>
 	</aside>
 </div>
