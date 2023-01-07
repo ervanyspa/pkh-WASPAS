@@ -14,6 +14,7 @@
 <script src="<?php echo base_url() ?>assets/bundles/apexcharts/apexcharts.min.js"></script>
 <script src="<?php echo base_url() ?>assets/bundles/datatables/datatables.min.js"></script>
 <script src="<?php echo base_url() ?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?php echo base_url() ?>assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
 
 <!-- Page Specific JS File -->
 <script src="<?php echo base_url() ?>assets/js/page/index.js"></script>

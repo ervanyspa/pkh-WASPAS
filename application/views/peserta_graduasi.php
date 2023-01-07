@@ -49,9 +49,9 @@
 	</section>
 
 	<!-- Modal with form -->
-	<div class="modal fade" id="tambahPesertaGraduasi" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+	<div class="modal fade bd-example-modal-lg" id="tambahPesertaGraduasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal-lg">
 				<div class="modal-header">
 					<h5 class="modal-title" id="formModal">Tambah Data Peserta Graduasi</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -59,7 +59,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-				<form class="">
+					<form class="">
 						<div class="form-group">
 							<label>NIK / Nama</label>
 							<div class="input-group">
@@ -72,78 +72,95 @@
 								<input type="text" class="form-control" placeholder="" name="nama">
 							</div>
 						</div>
-						<div class="form-group">
-							<label>Kepemilikan Rumah</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Kepemilikan Rumah</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Penghasilan</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
 								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Hutang</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Hutang</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Pengeluaran Pembelian Makanan dalam Seminggu</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Pembelian Pakaian dalam Setahun</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Pembelian Pakaian dalam Setahun</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Lantai Tempat Tinggal</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Dinding Tempat Tinggal</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Dinding Tempat Tinggal</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Tempat BAB / BAK</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Sumber Penerangan</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Sumber Penerangan</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Hak Aset</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
 						<div class="form-group align-right">
 							<button type="button" class="btn btn-secondary waves-effect">Batal</button>
@@ -155,9 +172,9 @@
 		</div>
 	</div>
 	<!-- Modal Edit -->
-	<div class="modal fade" id="editPesertaGraduasi" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+	<div class="modal fade bd-example-modal-lg" id="editPesertaGraduasi" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal-lg">
 				<div class="modal-header">
 					<h5 class="modal-title" id="formModal">Edit Data Peserta Graduasi</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -178,78 +195,95 @@
 								<input type="text" class="form-control" placeholder="" name="nama">
 							</div>
 						</div>
-						<div class="form-group">
-							<label>Kepemilikan Rumah</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Kepemilikan Rumah</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Penghasilan</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
 								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Hutang</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Hutang</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Pengeluaran Pembelian Makanan dalam Seminggu</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Pembelian Pakaian dalam Setahun</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Pembelian Pakaian dalam Setahun</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Lantai Tempat Tinggal</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Dinding Tempat Tinggal</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Dinding Tempat Tinggal</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Tempat BAB / BAK</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
-						<div class="form-group">
-							<label>Sumber Penerangan</label>
-							<select class="form-control">
-								<option>Option 1</option>
-								<option>Option 2</option>
-							</select>
-						</div>
-						<div class="form-group">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">Sumber Penerangan</label>
+								<select class="form-control selectric">
+									<option>Option 1</option>
+									<option>Option 2</option>
+									<option>Option 3</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
 							<label>Hak Aset</label>
-							<select class="form-control">
+							<select class="form-control selectric">
 								<option>Option 1</option>
 								<option>Option 2</option>
+								<option>Option 3</option>
 							</select>
+							</div>
 						</div>
 						<div class="form-group align-right">
 							<button type="button" class="btn btn-secondary waves-effect">Batal</button>

@@ -13,6 +13,7 @@
 
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bundles/datatables/datatables.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bundles/jquery-selectric/selectric.css">
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
@@ -35,18 +36,24 @@
 							<a href="#" data-toggle="sidebar" class="nav-link nav-link-lg collapse-btn"> <i data-feather="align-justify"></i></a>
 						</li>
 						<li>
-							<form class="form-inline mr-auto">
-								<div class="search-element">
-									<select class="form-control">
-										<option>Pilih periode</option>
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-									</select>
-									<button class="btn bg-info text-white" type="submit">Tampilkan</button>
+							<form>
+								<div class="form-row">
+									<div class="col-lg-7 col-md-4 col-sm-2 col-xs-2">
+										<div class="form-group">
+											<select class="form-control selectric">
+												<option>Pilih Periode</option>
+												<option>Option 2</option>
+												<option>Option 3</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-4 col-sm-2 col-xs-2">
+										<button class="btn btn-sm bg-info text-white" style="border-radius: 10px; " type="submit">Tampilkan</button>
+									</div>
 								</div>
 							</form>
 						</li>
+
 					</ul>
 				</div>
 				<ul class="navbar-nav navbar-right">
