@@ -8,4 +8,11 @@ class Model_periode extends CI_Model {
 
         return $this->db->get();
     }
+
+	public function filter($table, $where)
+	{
+		$this->db->from($table);
+		$this->db->where($where);
+		return $this->db->get();
+	}
 }
