@@ -8,7 +8,11 @@
 							<h4 class="mr-auto">Data Peserta Graduasi</h4>
 							<div class="p-2 align-right">
 								<h6>Total</h6>
-								<h6>20</h6>
+								<?php $jumlahcl = 0;
+								foreach ($calon as $cl) {
+								    $jumlahcl ++;
+								} ?>
+								<h6><?= $jumlahcl ?></h6>
 							</div>
 							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-success" data-toggle="modal" data-target="#tambahPesertaGraduasi"><i class="fas fa-plus"></i> Tambah Data</a></div>
 							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-warning" data-toggle="modal" data-target="#prosesPenilaian"></i> Proses Penilaian</a></div>
@@ -27,17 +31,26 @@
 										</tr>
 									</thead>
 									<tbody>
+										<?php $no = 1;
+								foreach ($penerima as $prm) { ?>
 										<tr>
-											<td>1</td>
-											<td>AAAAAA</td>
-											<td>AAAAAA</td>
-											<td>2018-01-20</td>
-											<td><span class="badge badge-success">Success</span></td>
+											<td><?= $no++ ?></td>
+											<td><?= $prm['nama'] ?></td>
+											<td><?= $prm['nik'] ?></td>
+											<td><?= $prm['nama_periode'] ?></td>
 											<td>
-												<a href="#" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editPesertaGraduasi"><i class="fas fa-pen"></i></a>
-												<a href="#" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+												<?php if ($prm['total'] == 0) { ?>
+													<span class="badge badge-danger">Belum Dinilai</span>
+												<?php } else { ?>
+													<span class="badge badge-success">Sudah Dinilai</span>
+												<?php } ?>
+											</td>
+											<td>
+												<a href="#" title="Edit" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editPesertaGraduasi<?php echo $prm['id_detail_periode'] ?>"><i class="fas fa-pen"></i></a>
+												<a href="#" title="Delete" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
+										<?php } ?>
 									</tbody>
 								</table>
 							</div>
@@ -62,105 +75,47 @@
 					<form class="">
 						<div class="form-group">
 							<label>NIK / Nama</label>
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nik">
-							</div>
+							<select class="form-control selectric" name="id_penerima_bantuan">
+									<option value=""></option>
+									<?php foreach ($penerimaB as $prm) {
+									    $cek=0;
+									    foreach ($dataterisi as $ds) {
+									        if ($ds['id_penerima_bantuan'] == $prm['id_penerima_bantuan']) {
+									            $cek++;
+									        }
+									    }
+									    if ($cek == '0') {
+									        if ($prm['status_bantuan'] == 'aktif') { ?>
+									<option value="<?php echo $prm['id_penerima_bantuan']; ?>"><?php echo $prm['nik']; ?>-<?php echo $prm['nama']; ?> </option>
+									<?php }
+									        }
+									} ?>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Periode</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nama">
+								<?php foreach ($period as $prd) { ?>
+                                    <input class="form-control" type="text" disabled name="" value="<?php echo $prd['nama_periode'] ?>" > 
+                                    <input type="hidden" name="id_periode" value="<?php echo $prd['id_periode'] ?>">
+								<?php } ?>
 							</div>
 						</div>
 						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Kepemilikan Rumah</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Penghasilan</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Hutang</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Pengeluaran Pembelian Makanan dalam Seminggu</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Pembelian Pakaian dalam Setahun</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Lantai Tempat Tinggal</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Dinding Tempat Tinggal</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Tempat BAB / BAK</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Sumber Penerangan</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Hak Aset</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
+							<?php foreach ($kriteria as $ktr) { ?>
+								<div class="form-group col-md-6">
+									<label><?php echo $ktr['jenis_kriteria']?></label>									
+									<input type="hidden" value="<?php echo $ktr['id_kriteria']?>" name="id_kriteria<?php echo $ktr['id_kriteria']?>">
+									<select class="form-control selectric" name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
+										<option value=""></option>
+										<?php foreach($rentang_nilai as $rn){ ?>
+											<?php if ($rn['id_kriteria'] == $ktr['id_kriteria']){ ?>
+												<option value="<?php echo $rn['id_rentang']; ?>"><?php echo $rn['jenis_rentang']; ?></option>
+											<?php } ?>
+										<?php } ?>
+									</select>
+								</div>
+							<?php } ?>
 						</div>
 						<div class="form-group align-right">
 							<button type="button" class="btn btn-secondary waves-effect">Batal</button>
@@ -172,7 +127,8 @@
 		</div>
 	</div>
 	<!-- Modal Edit -->
-	<div class="modal fade bd-example-modal-lg" id="editPesertaGraduasi" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+	<?php foreach($penerima as $prm) { ?>
+	<div class="modal fade bd-example-modal-lg" id="editPesertaGraduasi<?php echo $prm['id_detail_periode'] ?>" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content modal-lg">
 				<div class="modal-header">
@@ -186,104 +142,46 @@
 						<div class="form-group">
 							<label>NIK / Nama</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nik">
+                                <input class="form-control" type="text" disabled name="" value="<?php echo $prm['nik']; ?>-<?php echo $prm['nama']?>" > 
 							</div>
 						</div>
 						<div class="form-group">
 							<label>Periode</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nama">
+                                <input class="form-control" type="text" disabled name="" value="<?php echo $prd['nama_periode']; ?>" > 
 							</div>
 						</div>
 						<div class="form-row">
+							
+						<?php $i = 0; ?>
+						<?php  foreach ($kriteria as $ktr){  ?>
+							<?php foreach ($kuisioner as $kuis) {
+							    if ($kuis['id_detail_periode'] == $prm['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria']) { ?>
+								<input type="hidden" name="id_kuisioner<?php echo $ktr['id_kriteria']?>" value="<?php echo $kuis['id_kuisioner']?>">
+							<?php } ?>
+						<?php } ?>
 							<div class="form-group col-md-6">
-								<label for="inputEmail4">Kepemilikan Rumah</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
+								<label><?php echo $ktr['jenis_kriteria']?></label>
+                                <input type="hidden" value="<?php echo $ktr['id_kriteria']?>" name="id_kriteria<?php echo $ktr['id_kriteria']?>">
+								<select class="form-control selectric"  name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
+								<?php foreach ($ktr['rentang'] as $key) { ?>
+								<?php $cek = 0; 
+								foreach($kuisioner as $kuis){ 
+									if($kuis['id_detail_periode'] == $prm['id_detail_periode'] && $key['id_rentang'] == $kuis['id_rentang']){
+										$cek++;
+										$id_kuisioner = $kuis['id_kuisioner'];
+									} 
+								} ?>
+								<?php if($cek > 0 ) { ?>
+									<option value="<?php echo $key['id_rentang']; ?>"  selected><?php echo $key['jenis_rentang']; ?></option>
+								<?php } else { ?>
+									<option value="<?php echo $key['id_rentang']; ?>" ><?php echo $key['jenis_rentang']; ?></option>
+								<?php } ?>     
+
+							<?php }?>
 								</select>
 							</div>
-							<div class="form-group col-md-6">
-							<label>Penghasilan</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Hutang</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Pengeluaran Pembelian Makanan dalam Seminggu</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Pembelian Pakaian dalam Setahun</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Lantai Tempat Tinggal</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Dinding Tempat Tinggal</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Tempat BAB / BAK</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="inputEmail4">Sumber Penerangan</label>
-								<select class="form-control selectric">
-									<option>Option 1</option>
-									<option>Option 2</option>
-									<option>Option 3</option>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-							<label>Hak Aset</label>
-							<select class="form-control selectric">
-								<option>Option 1</option>
-								<option>Option 2</option>
-								<option>Option 3</option>
-							</select>
-							</div>
+						<?php } ?>
 						</div>
 						<div class="form-group align-right">
 							<button type="button" class="btn btn-secondary waves-effect">Batal</button>
@@ -294,4 +192,5 @@
 			</div>
 		</div>
 	</div>
+	<?php } ?>
 </div>

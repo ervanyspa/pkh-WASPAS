@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bundles/datatables/datatables.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bundles/jquery-selectric/selectric.css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bundles/select2/dist/css/select2.min.css">
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url() ?>assets/css/components.css">
