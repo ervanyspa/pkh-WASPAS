@@ -16,11 +16,8 @@
 <script src="<?php echo base_url() ?>assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo base_url() ?>assets/bundles/jquery-selectric/jquery.selectric.min.js"></script>
 <script src="<?php echo base_url() ?>assets/bundles/select2/dist/js/select2.full.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.select2').select2({ width: '100%' });
-	});
-</script>
+
+
 
 <!-- Page Specific JS File -->
 <script src="<?php echo base_url() ?>assets/js/page/index.js"></script>

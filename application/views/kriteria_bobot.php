@@ -14,12 +14,12 @@
 								<table class="table table-striped dataTable" id="table-1">
 									<thead>
 										<tr>
-											<th>No</th>
-											<th>Kode Kriteria</th>
-											<th>Jenis Kriteria</th>
-											<th>Atribut</th>
-											<th>Bobot</th>
-											<th>Aksi</th>
+											<th style="width: 5%;">No</th>
+											<th style="width: 15%;">Kode Kriteria</th>
+											<th style="width: 45%;">Jenis Kriteria</th>
+											<th style="width: 10%;">Atribut</th>
+											<th style="width: 10%;">Bobot</th>
+											<th style="width: 15%;">Aksi</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -78,7 +78,7 @@
 						</div>
 						<div class="form-group">
 							<label>Atribut</label>
-							<select class="form-control" name="atribut" required>
+							<select class="form-control select2" style="width: 100%;" name="atribut" required>
 								<option value="Benefit">Benefit</option>
 								<option value="Cost">Cost</option>
 							</select>
@@ -224,7 +224,7 @@
 							</div>
 							<div class="form-group">
 								<label>Atribut</label>
-								<select class="form-control" name="atribut" required>
+								<select class="form-control select2" style="width: 100%;" name="atribut" required>
 									<option value="Benefit" <?php echo ($ktr['atribut'] === 'Benefit') ? 'selected' : '' ?>>Benefit</option>
 									<option value="Cost" <?php echo ($ktr['atribut'] === 'Cost') ? 'selected' : '' ?>>Cost</option>
 								</select>

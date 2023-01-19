@@ -95,16 +95,16 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label>Kategori</label>
-							<select class="form-control" name="kategori" required>
+                      		<label>Kategori</label>
+							<select class="form-control select2" style="width: 100%;" name="kategori" required>
 								<option value="Pendidikan">Pendidikan</option>
 								<option value="Kesehatan">Kesehatan</option>
 								<option value="Kesejahteraan Sosial">Kesejahteraan Sosial</option>
 							</select>
 						</div>
 						<div class="form-group">
-							<label>Status</label>
-							<select class="form-control" name="status_bantuan" required>
+                      		<label>Status</label>
+							<select class="form-control select2" style="width: 100%;" name="status_bantuan" required>
 								<option value="aktif">Aktif</option>
 								<option value="tidak">Tidak</option>
 							</select>
@@ -158,7 +158,7 @@
 							</div>
 							<div class="form-group">
 								<label>Kategori</label>
-								<select class="form-control" name="kategori" required>
+								<select class="form-control select2" style="width: 100%;" name="kategori" required>
 									<option value="Pendidikan" <?php echo ($prm['kategori'] === 'Pendidikan') ? 'selected' : '' ?>>Pendidikan</option>
 									<option value="Kesehatan" <?php echo ($prm['kategori'] === 'Kesehatan') ? 'selected' : '' ?>>Kesehatan</option>
 									<option value="Kesejahteraan Sosial" <?php echo ($prm['kategori'] === 'Kesejahteraan Sosial') ? 'selected' : '' ?>>Kesejahteraan Sosial</option>
@@ -166,7 +166,7 @@
 							</div>
 							<div class="form-group">
 								<label>Status</label>
-								<select class="form-control" name="status_bantuan" required>
+								<select class="form-control select2" style="width: 100%;" name="status_bantuan" required>
 									<option value="aktif" <?php echo ($prm['status_bantuan'] === 'aktif') ? 'selected' : '' ?>>Aktif</option>
 									<option value="tidak" <?php echo ($prm['status_bantuan'] === 'tidak') ? 'selected' : '' ?>>Tidak</option>
 								</select>

@@ -61,7 +61,7 @@
 		</div>
 	</section>
 
-	<!-- Modal with form -->
+	<!-- Modal Tambah -->
 	<div class="modal fade bd-example-modal-lg" id="tambahPesertaGraduasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content modal-lg">
@@ -75,7 +75,7 @@
 					<form class="">
 						<div class="form-group">
 							<label>NIK / Nama</label>
-							<select class="form-control selectric" name="id_penerima_bantuan">
+							<select class="form-control select2" style="width: 100%;" name="id_penerima_bantuan">
 									<option value=""></option>
 									<?php foreach ($penerimaB as $prm) {
 									    $cek=0;
@@ -106,7 +106,7 @@
 								<div class="form-group col-md-6">
 									<label><?php echo $ktr['jenis_kriteria']?></label>									
 									<input type="hidden" value="<?php echo $ktr['id_kriteria']?>" name="id_kriteria<?php echo $ktr['id_kriteria']?>">
-									<select class="form-control selectric" name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
+									<select class="form-control select2" style="width: 100%;" name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
 										<option value=""></option>
 										<?php foreach($rentang_nilai as $rn){ ?>
 											<?php if ($rn['id_kriteria'] == $ktr['id_kriteria']){ ?>
@@ -163,7 +163,7 @@
 							<div class="form-group col-md-6">
 								<label><?php echo $ktr['jenis_kriteria']?></label>
                                 <input type="hidden" value="<?php echo $ktr['id_kriteria']?>" name="id_kriteria<?php echo $ktr['id_kriteria']?>">
-								<select class="form-control selectric"  name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
+								<select class="form-control select2" style="width: 100%;" name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
 								<?php foreach ($ktr['rentang'] as $key) { ?>
 								<?php $cek = 0; 
 								foreach($kuisioner as $kuis){ 
