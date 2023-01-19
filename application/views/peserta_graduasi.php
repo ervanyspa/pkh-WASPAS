@@ -1,3 +1,4 @@
+<?php echo $this->session->flashdata('berhasil_peserta_graduasi') ?>
 <div class="main-content">
 	<section class="section">
 		<div class="section-body">
@@ -9,9 +10,9 @@
 							<div class="p-2 align-right">
 								<h6>Total</h6>
 								<?php $jumlahcl = 0;
-								foreach ($calon as $cl) {
-								    $jumlahcl ++;
-								} ?>
+foreach ($calon as $cl) {
+    $jumlahcl ++;
+} ?>
 								<h6><?= $jumlahcl ?></h6>
 							</div>
 							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-success" data-toggle="modal" data-target="#tambahPesertaGraduasi"><i class="fas fa-plus"></i> Tambah Data</a></div>
@@ -32,8 +33,8 @@
 									</thead>
 									<tbody>
 										<?php $no = 1;
-								foreach ($penerima as $prm) { ?>
-										<tr>
+foreach ($penerima as $prm) { ?>
+										<tr id="<?= $prm['id_detail_periode'] ?>">
 											<td><?= $no++ ?></td>
 											<td><?= $prm['nama'] ?></td>
 											<td><?= $prm['nik'] ?></td>
@@ -47,7 +48,7 @@
 											</td>
 											<td>
 												<a href="#" title="Edit" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editPesertaGraduasi<?php echo $prm['id_detail_periode'] ?>"><i class="fas fa-pen"></i></a>
-												<a href="#" title="Delete" class="btn btn-icon btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+												<a href="#" title="Delete" class="btn btn-icon btn-sm btn-danger remove"><i class="fas fa-trash"></i></a>
 											</td>
 										</tr>
 										<?php } ?>
@@ -72,7 +73,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form class="">
+					<form action="<?= base_url() ?>peserta_graduasi/tambah_peserta_graduasi" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label>NIK / Nama</label>
 							<select class="form-control selectric" name="id_penerima_bantuan">
@@ -108,8 +109,8 @@
 									<input type="hidden" value="<?php echo $ktr['id_kriteria']?>" name="id_kriteria<?php echo $ktr['id_kriteria']?>">
 									<select class="form-control selectric" name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
 										<option value=""></option>
-										<?php foreach($rentang_nilai as $rn){ ?>
-											<?php if ($rn['id_kriteria'] == $ktr['id_kriteria']){ ?>
+										<?php foreach ($rentang_nilai as $rn) { ?>
+											<?php if ($rn['id_kriteria'] == $ktr['id_kriteria']) { ?>
 												<option value="<?php echo $rn['id_rentang']; ?>"><?php echo $rn['jenis_rentang']; ?></option>
 											<?php } ?>
 										<?php } ?>
@@ -119,7 +120,7 @@
 						</div>
 						<div class="form-group align-right">
 							<button type="button" class="btn btn-secondary waves-effect">Batal</button>
-							<button type="button" class="btn btn-primary waves-effect">Simpan</button>
+							<button type="submit" class="btn btn-primary waves-effect">Simpan</button>
 						</div>
 					</form>
 				</div>
@@ -127,7 +128,7 @@
 		</div>
 	</div>
 	<!-- Modal Edit -->
-	<?php foreach($penerima as $prm) { ?>
+	<?php foreach ($penerima as $prm) { ?>
 	<div class="modal fade bd-example-modal-lg" id="editPesertaGraduasi<?php echo $prm['id_detail_periode'] ?>" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content modal-lg">
@@ -138,7 +139,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form class="">
+					<form action="<?= base_url() ?>peserta_graduasi/update_peserta_graduasi" method="post" enctype="multipart/form-data">
 						<div class="form-group">
 							<label>NIK / Nama</label>
 							<div class="input-group">
@@ -154,7 +155,7 @@
 						<div class="form-row">
 							
 						<?php $i = 0; ?>
-						<?php  foreach ($kriteria as $ktr){  ?>
+						<?php  foreach ($kriteria as $ktr) {  ?>
 							<?php foreach ($kuisioner as $kuis) {
 							    if ($kuis['id_detail_periode'] == $prm['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria']) { ?>
 								<input type="hidden" name="id_kuisioner<?php echo $ktr['id_kriteria']?>" value="<?php echo $kuis['id_kuisioner']?>">
@@ -165,14 +166,14 @@
                                 <input type="hidden" value="<?php echo $ktr['id_kriteria']?>" name="id_kriteria<?php echo $ktr['id_kriteria']?>">
 								<select class="form-control selectric"  name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
 								<?php foreach ($ktr['rentang'] as $key) { ?>
-								<?php $cek = 0; 
-								foreach($kuisioner as $kuis){ 
-									if($kuis['id_detail_periode'] == $prm['id_detail_periode'] && $key['id_rentang'] == $kuis['id_rentang']){
-										$cek++;
-										$id_kuisioner = $kuis['id_kuisioner'];
-									} 
-								} ?>
-								<?php if($cek > 0 ) { ?>
+								<?php $cek = 0;
+								    foreach ($kuisioner as $kuis) {
+								        if ($kuis['id_detail_periode'] == $prm['id_detail_periode'] && $key['id_rentang'] == $kuis['id_rentang']) {
+								            $cek++;
+								            $id_kuisioner = $kuis['id_kuisioner'];
+								        }
+								    } ?>
+								<?php if ($cek > 0) { ?>
 									<option value="<?php echo $key['id_rentang']; ?>"  selected><?php echo $key['jenis_rentang']; ?></option>
 								<?php } else { ?>
 									<option value="<?php echo $key['id_rentang']; ?>" ><?php echo $key['jenis_rentang']; ?></option>
@@ -185,7 +186,7 @@
 						</div>
 						<div class="form-group align-right">
 							<button type="button" class="btn btn-secondary waves-effect">Batal</button>
-							<button type="button" class="btn btn-primary waves-effect">Simpan</button>
+							<button type="submit" class="btn btn-primary waves-effect">Simpan</button>
 						</div>
 					</form>
 				</div>
@@ -194,3 +195,35 @@
 	</div>
 	<?php } ?>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(".remove").click(function() {
+        var id = $(this).parents("tr").attr("id");
+        swal({
+            title: "Hapus Data?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: '<?= base_url() ?>peserta_graduasi/delete_peserta_graduasi/' + id,
+                    type: 'DELETE',
+                    error: function() {
+                        alert('Something is wrong');
+                    },
+                    success: function(data) {
+                        swal({
+                            title: "Data Telah Terhapus"
+                        }).then(function() {
+                            location.reload();
+                        });
+                    }
+                });
+            } else {
+                // swal("Batal");
+            }
+        });
+    });
+</script>

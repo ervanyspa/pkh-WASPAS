@@ -1,3 +1,4 @@
+<?php echo $this->session->flashdata('berhasil_dashboard') ?>
 <!-- Main Content -->
 <div class="main-content">
 	<section class="section">

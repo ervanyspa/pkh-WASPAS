@@ -1,3 +1,4 @@
+<?php echo $this->session->flashdata('flashdata_login') ?>
 <section class="section">
     <div class="container">
         <div class="row align-items-center justify-content-center" style="min-height: 100vh;">
@@ -12,26 +13,23 @@
                             <div class="card-body">
 								<h5 class="mx-auto col-black d-flex justify-content-center">LOGIN</h5>
                                 <form action="<?php base_url() ?>login/login_user" method="post" enctype="multipart/form-data">
-									<div class="form-group">
+									<div class="form-group">										
+									<?php echo $this->session->flashdata('pesan') ?>
                                         <label for="username">Username</label>
-                                        <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
-                                        <div class="invalid-feedback">
-                                            Please fill in your username
-                                        </div>
+                                        <input id="username" type="text" class="form-control" name="username" tabindex="1" autofocus>
+                         				<span class="d-flex ml-2 text-danger"><?php echo $this->session->flashdata('err_username') ?></span>
                                     </div>
                                     <div class="form-group">
 										<div class="d-block">
                                             <label for="password" class="control-label">Password</label>
                                         </div>
 										<div class="input-group">
-                                        	<input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                                        	<input id="password" type="password" class="form-control" name="password" tabindex="2" >
 										<div class="input-group-append">
 											<div class="input-group-text"><i class="fas fa-eye-slash " id="togglePassword"></i></div>
-										</div>
-                                        <div class="invalid-feedback">
-                                            please fill in your password
-                                        </div>
-										</div>
+										</div>				
+										</div>										
+										<span class="d-flex ml-2 text-danger"><?php echo $this->session->flashdata('err_password') ?></span>
                                     </div>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-info btn-lg btn-block" tabindex="4">
