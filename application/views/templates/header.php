@@ -26,6 +26,12 @@
 </head>
 
 <body>
+<?php $periode = $this->Model_periode->get_periode()->result_array();
+	$where = array(
+	    'id_petugas' => $this->session->userdata('id_petugas')
+	);
+	// $profil = $this->ModelPetugas->tampil_petugas($where)->row_array(); ?>
+<body>
 	<div class="loader"></div>
 	<div id="app">
 		<div class="main-wrapper main-wrapper-1">
@@ -37,14 +43,19 @@
 							<a href="#" data-toggle="sidebar" class="nav-link nav-link-lg collapse-btn"> <i data-feather="align-justify"></i></a>
 						</li>
 						<li>
-							<form>
+						<?php if($this->uri->segment(1) == '' || $this->uri->segment(1) == 'peserta_graduasi' || $this->uri->segment(1) == 'laporan_seleksi' ) { ?>
+							<form action="<?= base_url() ?><?php echo ($this->uri->segment(1) == 'peserta_graduasi') ? 'peserta_graduasi' : '' ?><?php echo ($this->uri->segment(1) == '') ? 'dashboard' : '' ?>/filterperiode" method="post" enctype="multipart/form-data">
 								<div class="form-row">
 									<div class="col-lg-7 col-md-4 col-sm-2 col-xs-2">
 										<div class="form-group">
-											<select class="form-control selectric">
-												<option>Pilih Periode</option>
-												<option>Option 2</option>
-												<option>Option 3</option>
+											<select class="form-control select2" name="id_periode">
+											<?php foreach ($periode as $prd) { ?>
+                                                    <?php if ($this->session->userdata('id_periode') == $prd['id_periode']) { ?>
+                                                        <option value="<?= $prd['id_periode'] ?>"selected><?= $prd['nama_periode'] ?></option>
+                                                    <?php } else { ?>
+                                                        <option value="<?= $prd['id_periode'] ?>"><?= $prd['nama_periode'] ?></option>
+                                                    <?php } ?>
+                                                <?php }?> 
 											</select>
 										</div>
 									</div>
@@ -53,8 +64,8 @@
 									</div>
 								</div>
 							</form>
+							<?php } ?>
 						</li>
-
 					</ul>
 				</div>
 				<ul class="navbar-nav navbar-right">
@@ -65,10 +76,17 @@
 										fa-user"></i> Profile
 							</a>
 							<div class="dropdown-divider"></div>
-							<a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+							<a href="<?= base_url() ?>auth/login/logout" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
 								Logout
 							</a>
 						</div>
 					</li>
 				</ul>
 			</nav>
+
+			<script src="<?php echo base_url() ?>assets/js/select2/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script src="<?php echo base_url() ?>assets/js/select2/select2.min.js" defer></script>
+            <script type="text/javascript">
+              $(document).ready(function() {
+                $('.select2').select2();
+            });</script>

@@ -2,6 +2,22 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kriteria_bobot extends CI_Controller {
+
+	public function __construct()
+	{
+
+		parent::__construct();
+		if ($this->session->userdata('level') != 'Admin') {
+			$this->session->set_flashdata(
+				'flashdata_login',
+				'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+							<script type ="text/JavaScript">  
+							swal("Gagal","Anda Harus Login Terlebih Dahulu","error"); 
+							</script>'
+			);
+			redirect('auth/login');
+		}
+	}
 	
 	public function index() {
 		$data['rentang_nilai'] = $this->Model_kriteria_bobot->get_data('rentang_nilai')->result_array();
