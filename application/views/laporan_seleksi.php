@@ -23,7 +23,7 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-striped dataTable" id="table-1">
+								<table class="table table-striped dataTable" id="table-3">
 									<thead>
 										<tr>
 											<th>No</th>
@@ -33,9 +33,9 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td></td>
-											<td></td>
-											<td></td>
+											<td>tes</td>
+											<td>tes</td>
+											<td>tes</td>
 										</tr>
 									</tbody>
 								</table>

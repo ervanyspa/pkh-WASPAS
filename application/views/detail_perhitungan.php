@@ -11,7 +11,7 @@
 						<div class="card-body">
 							<div class="table-responsive">
 								<div class="section-title mt-0">Matrik Keputusan/Nilai Awal</div>
-								<table class="table table-striped dataTable" id="table-1">
+								<table class="table table-striped dataTable" id="table-3">
 									<thead>
 										<tr>
 											<th>No</th>
@@ -107,7 +107,7 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-striped dataTable" id="table-2">
+								<table class="table table-striped dataTable" id="table-4">
 									<thead>
 										<tr>
 											<th>No</th>
@@ -174,7 +174,7 @@
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<table class="table table-striped dataTable" id="table-2">
+								<table class="table table-striped dataTable" id="table-5">
 									<thead>
 										<tr>
 											<th>No</th>
