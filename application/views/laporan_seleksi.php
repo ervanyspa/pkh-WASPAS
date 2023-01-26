@@ -4,11 +4,22 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
+						<h5 class="ml-4 mt-3">Hasil Seleksi</h5>
 						<div class="card-header d-flex">
-							<h4 class="mr-auto">Hasil Seleksi</h4>
-							
-							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-success"><i class="fas fa-print"></i> Cetak Hasil Rekomendasi</a></div>
-							<div class="p-2"><a href="<?php echo base_url() ?>laporan_seleksi/detail_perhitungan" class="btn btn-icon icon-left btn-warning"></i> Detail Perhitungan</a></div>
+							<div class="mr-auto">
+								<form action="" method="post" enctype="multipart/form-data">
+									<div class="form-row mb-0">
+										<div class="form-group mb-0">
+											<input type="text" class="form-control" placeholder="Inputkan nilai filter hasil" name="nilai1" required>
+										</div>
+										<div class="ml-2">
+											<button type="submit" class="btn btn-success waves-effect">Simpan</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="p-1"><a href="#" class="btn btn-icon icon-left btn-success"><i class="fas fa-print"></i> Cetak Hasil Rekomendasi</a></div>
+							<div class="p-1"><a href="<?php echo base_url() ?>laporan_seleksi/detail_perhitungan" class="btn btn-icon icon-left btn-warning"></i> Detail Perhitungan</a></div>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -22,9 +33,9 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>1</td>
-											<td>AAAAAA</td>
-											<td>AAAAAA</td>
+											<td></td>
+											<td></td>
+											<td></td>
 										</tr>
 									</tbody>
 								</table>
