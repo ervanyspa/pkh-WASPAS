@@ -22,7 +22,18 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-		$data['periode'] = $this->Model_periode->get_periode()->result_array();
+		$id = $this->input->post('id_periode');
+		$data['periode'] = $this->Model_periode->get_periode_dashboard()->result_array();
+
+		if($id == ''){
+            if($this->session->userdata('id_periode') == '' ){
+                $this->session->set_userdata('id_periode', $data['periode']['0']['id_periode']);
+            }  
+        }
+        else {
+            $this->session->set_userdata('id_periode', $id);
+        }
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('dashboard');
