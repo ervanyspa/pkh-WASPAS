@@ -66,9 +66,11 @@
 
 				<div class="col-lg-12 col-md-8">
 					<div class="card">
+						<div class="card-header d-flex">
+							<h4 class="mr-auto">Matrik Keputusan/Nilai Awal</h4>
+						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-								<div class="section-title mt-0">Matrik Keputusan/Nilai Awal</div>
 								<table class="table mb-0 table-bordered table-hover">
                                     <thead>
                                         <tr class="table-active">

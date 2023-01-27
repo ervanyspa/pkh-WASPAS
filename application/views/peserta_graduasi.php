@@ -63,7 +63,7 @@ foreach ($penerima as $prm) { ?>
 	</section>
 
 	<!-- Modal Tambah -->
-	<div class="modal fade bd-example-modal-lg" id="tambahPesertaGraduasi" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal fade bd-example-modal-lg" id="tambahPesertaGraduasi" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content modal-lg">
 				<div class="modal-header">
@@ -129,7 +129,7 @@ foreach ($penerima as $prm) { ?>
 	</div>
 	<!-- Modal Edit -->
 	<?php foreach ($penerima as $prm) { ?>
-	<div class="modal fade bd-example-modal-lg" id="editPesertaGraduasi<?php echo $prm['id_detail_periode'] ?>" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+	<div class="modal fade bd-example-modal-lg" id="editPesertaGraduasi<?php echo $prm['id_detail_periode'] ?>" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content modal-lg">
 				<div class="modal-header">

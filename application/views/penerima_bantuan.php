@@ -59,7 +59,7 @@
 	</section>
 
 	<!-- Modal Tambah -->
-	<div class="modal fade" id="tambahPenerimaBantuan" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+	<div class="modal fade" id="tambahPenerimaBantuan" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -121,7 +121,7 @@
 
 	<?php foreach ($penerima as $prm) { ?>
 		<!-- Modal Edit -->
-		<div class="modal fade" id="editPenerimaBantuan<?= $prm['id_penerima_bantuan'] ?>" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+		<div class="modal fade" id="editPenerimaBantuan<?= $prm['id_penerima_bantuan'] ?>" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">

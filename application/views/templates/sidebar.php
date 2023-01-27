@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
 	<aside id="sidebar-wrapper">
 		<div class="sidebar-brand">
-			<a href="index.html"> <img alt="image" src="<?php echo base_url() ?>assets/img/logo.png" class="header-logo" /> <span class="logo-name">PKH</span>
+			<a href="index.html"> <img style="height: 55px;" alt="image" src="<?= base_url() ?>assets/img/image-gallery/PKH.png" class="header-logo"/><span class="logo-name"></span>
 			</a>
 		</div>
 		<ul class="sidebar-menu">

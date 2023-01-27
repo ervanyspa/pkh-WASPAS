@@ -53,7 +53,7 @@
 	</section>
 
 	<!-- Tambah Kriteria -->
-	<div class="modal fade" id="tambahKriteria" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+	<div class="modal fade" id="tambahKriteria" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -136,7 +136,7 @@
 
 	<!-- Lihat Kriteria -->
 	<?php foreach ($kriteria as $ktr) { ?>
-		<div class="modal fade" id="lihatKriteria<?php echo $ktr['id_kriteria'] ?>" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+		<div class="modal fade" id="lihatKriteria<?php echo $ktr['id_kriteria'] ?>" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -199,7 +199,7 @@
 		</div>
 
 		<!-- Edit Data Kriteria -->
-		<div class="modal fade" id="editDataKriteria<?php echo $ktr['id_kriteria'] ?>" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
+		<div class="modal fade" id="editDataKriteria<?php echo $ktr['id_kriteria'] ?>" role="dialog" aria-labelledby="formModal" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
