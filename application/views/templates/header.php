@@ -44,7 +44,7 @@
 						</li>
 						<li>
 						<?php if($this->uri->segment(1) == '' || $this->uri->segment(1) == 'peserta_graduasi' || $this->uri->segment(1) == 'laporan_seleksi' ) { ?>
-							<form action="<?= base_url() ?><?php echo ($this->uri->segment(1) == 'peserta_graduasi') ? 'peserta_graduasi' : '' ?><?php echo ($this->uri->segment(1) == '') ? 'dashboard' : '' ?>/filterperiode" method="post" enctype="multipart/form-data">
+							<form action="<?= base_url() ?><?php echo ($this->uri->segment(1) == 'laporan_seleksi') ? 'laporan_seleksi' : '' ?><?php echo ($this->uri->segment(1) == 'peserta_graduasi') ? 'peserta_graduasi' : '' ?><?php echo ($this->uri->segment(1) == '') ? 'dashboard' : '' ?>/filterperiode" method="post" enctype="multipart/form-data">
 								<div class="form-row">
 									<div class="col-lg-7 col-md-4 col-sm-2 col-xs-2">
 										<div class="form-group">
@@ -72,7 +72,7 @@
 					<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="<?php echo base_url() ?>assets/img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
 						<div class="dropdown-menu dropdown-menu-right pullDown">
 							<div class="dropdown-title">Hello Sarah Smith</div>
-							<a href="<?php base_url() ?> Profil" class="dropdown-item has-icon"> <i class="far
+							<a href="<?= base_url() ?>profil" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Profile
 							</a>
 							<div class="dropdown-divider"></div>
