@@ -125,6 +125,89 @@ class Peserta_graduasi extends CI_Controller
         redirect('peserta_graduasi');
 	}
 
+	public function proses_penilaian()
+	{
+		$data['id_periode'] = $this->session->userdata('id_periode');
+        $where = array(
+            'detail_periode.id_periode' => $data['id_periode']
+        );
+		$kuisioner = $this->Model_perhitungan->tampil_nilaiAwal($where)->result_array();
+        $data['kriteria'] = $this->Model_kriteria_bobot->get_data('kriteria')->result_array();
+        $penerima = $this->Model_calon->tampil_detail1($where)->result_array();
+
+		function cariMultiplikasi($array) {
+			$output = 1;
+
+			foreach ($array as $x) {
+				$output *= $x; 
+			}
+			
+			return $output;
+		}
+
+		$a = 0;
+        $i = 0;
+        foreach($data['kriteria'] as $ktr){
+            $where2 = array(
+                'kuisioner.id_kriteria'  => $ktr['id_kriteria'],
+                'detail_periode.id_periode' => $data['id_periode']
+            );
+            $data['kriteria'][$a++]['max']= $this->Model_perhitungan->getmax($where2)->row();
+            $data['kriteria'][$i++]['min']= $this->Model_perhitungan->getmin($where2)->row();
+        }
+
+		foreach($penerima as $prm){
+			$perkalian = array(); 
+			$pangkat = array();
+            // $b = 0;
+            // $c = 0;
+            foreach($data['kriteria'] as $ktr) {
+                $max = $ktr['max']->nilai;
+                
+                $min = $ktr['min']->nilai;
+                foreach($kuisioner as $ksr){
+                    if($prm['id_detail_periode'] == $ksr['id_detail_periode'] && $ktr['id_kriteria'] == $ksr['id_kriteria']){
+                        $nilai = $ksr['nilai'];
+
+                        if($ktr['atribut'] == 'Benefit'){
+                            $normalisasi = $nilai/$max;                            
+                            $preferensi  = $normalisasi * $ktr['bobot'];
+							$preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
+							array_push($perkalian, $preferensi);
+							array_push($pangkat, $preferensi2);
+                            // $total+= $preferensi;
+                        } else {
+                            $normalisasi = $min/$nilai;
+                            $preferensi  = $normalisasi * $ktr['bobot'];
+							$preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
+							array_push($perkalian, $preferensi);
+							array_push($pangkat, $preferensi2);
+                            // $total+= $preferensi;
+                        }
+                    }
+
+                }
+            }
+			$total = 0.5 * array_sum($perkalian) + 0.5 * cariMultiplikasi($pangkat);
+            $format = number_format($total, 3);
+            $data1 = array(
+                "total" => $format
+            );
+            $where1 = array(
+                'id_detail_periode' => $prm['id_detail_periode']
+            );
+            $this->Model_penerima->edit_data($data1, $where1, 'detail_periode');
+        }
+		$this->session->set_flashdata(
+			'berhasil_peserta_graduasi',
+			'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+						<script type ="text/JavaScript">  
+						swal("Sukses","Data Kuisioner Peserta Graduasi Berhasil Diproses","success"); 
+						</script>'
+		);
+        redirect('peserta_graduasi');
+	}
+
 	public function delete_peserta_graduasi($id_detail_periode)
 	{
 

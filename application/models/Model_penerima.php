@@ -15,4 +15,17 @@ class Model_penerima extends CI_Model {
 		$this->db->from('penerima_bantuan');
 		return $this->db->get();
 	}
+
+	public function cek2($where, $table){
+		$this->db->where($where);
+		$this->db->from($table);
+		return $this->db->get();
+	}
+
+	public function edit_data($data, $where, $table)
+	{
+		$this->db->where($where);
+		$this->db->update($table, $data);
+		
+	}
 }
