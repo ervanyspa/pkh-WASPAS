@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jul 27, 2022 at 09:43 AM
--- Server version: 10.3.35-MariaDB-cll-lve
--- PHP Version: 7.4.30
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 29 Jan 2023 pada 06.27
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kabb2428_graduasi`
+-- Database: `pkh_waspas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_periode`
+-- Struktur dari tabel `detail_periode`
 --
 
 CREATE TABLE `detail_periode` (
@@ -36,60 +35,62 @@ CREATE TABLE `detail_periode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `detail_periode`
+-- Dumping data untuk tabel `detail_periode`
 --
 
 INSERT INTO `detail_periode` (`id_detail_periode`, `id_penerima_bantuan`, `id_periode`, `total`) VALUES
 (9, 1, 1, 56.25),
-(10, 2, 2, 76.25),
+(10, 2, 2, 0.784),
 (11, 9, 1, 70),
-(12, 9, 2, 66.25),
-(14, 10, 2, 46.67),
-(15, 1, 2, 38.33),
-(16, 11, 2, 48.75),
-(17, 13, 2, 55.42),
-(18, 15, 2, 55.42),
-(19, 14, 2, 53.75),
-(21, 12, 2, 61.25),
+(12, 9, 2, 0.682),
+(14, 10, 2, 0.507),
+(15, 1, 2, 0.397),
+(16, 11, 2, 0.438),
+(17, 13, 2, 0.567),
+(18, 15, 2, 0.551),
+(19, 14, 2, 0.521),
+(21, 12, 2, 0.58),
 (31, 11, 1, 51.25),
 (32, 13, 1, 53.75),
 (33, 14, 1, 62.5),
-(34, 17, 2, 52.92),
+(34, 17, 2, 0.495),
 (35, 15, 1, 60),
 (36, 16, 1, 63.75),
 (38, 17, 1, 88.75),
 (39, 12, 1, 48.75),
-(40, 20, 2, 72.92),
-(41, 22, 7, 90),
-(42, 16, 2, 55),
-(43, 25, 2, 62.92),
-(44, 26, 2, 63.75),
-(45, 28, 2, 59.58),
-(46, 29, 2, 57.92),
-(47, 27, 2, 62.5),
-(48, 30, 2, 61.25),
-(49, 31, 2, 50.42),
-(50, 32, 2, 63.75),
-(51, 24, 2, 62.92),
-(52, 42, 2, 57.92),
-(53, 35, 2, 61.25),
-(54, 33, 2, 59.17),
-(55, 39, 2, 62.08),
-(56, 34, 2, 62.5),
-(57, 37, 2, 57.08),
-(58, 36, 2, 51.67),
-(59, 47, 2, 61.25),
-(60, 22, 2, 58.75),
-(61, 40, 2, 72.5),
-(62, 43, 2, 62.5),
-(63, 10, 7, 60.42),
-(64, 11, 7, 75.42),
-(65, 12, 7, 73.33);
+(40, 20, 2, 0.814),
+(41, 22, 7, 0.892),
+(42, 16, 2, 0.564),
+(43, 25, 2, 0.631),
+(44, 26, 2, 0.669),
+(45, 28, 2, 0.673),
+(46, 29, 2, 0.539),
+(47, 27, 2, 0.704),
+(48, 30, 2, 0.661),
+(49, 31, 2, 0.61),
+(50, 32, 2, 0.706),
+(51, 24, 2, 0.683),
+(52, 42, 2, 0.608),
+(53, 35, 2, 0.634),
+(54, 33, 2, 0.622),
+(55, 39, 2, 0.722),
+(56, 34, 2, 0.636),
+(57, 37, 2, 0.649),
+(58, 36, 2, 0.615),
+(59, 47, 2, 0.561),
+(60, 22, 2, 0.675),
+(61, 40, 2, 0.716),
+(62, 43, 2, 0.6),
+(63, 10, 7, 0.963),
+(64, 11, 7, 0.92),
+(65, 12, 7, 0.906),
+(70, 48, 9, 0),
+(71, 9, 7, 0.552);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kriteria`
+-- Struktur dari tabel `kriteria`
 --
 
 CREATE TABLE `kriteria` (
@@ -101,25 +102,25 @@ CREATE TABLE `kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kriteria`
+-- Dumping data untuk tabel `kriteria`
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `nama_kode`, `jenis_kriteria`, `atribut`, `bobot`) VALUES
-(1, 'C1', 'Kepemilikan Rumah', 'Benefit', 10),
-(3, 'C2', 'Penghasilan', 'Benefit', 20),
-(4, 'C3', 'Jumlah Hutang Dalam Setahun', 'Benefit', 5),
-(6, 'C4', 'Presentase Pengeluaran Pembelian makanan dalam seminggu (Terhadap Penghasilan)', 'Benefit', 5),
-(7, 'C5', 'Pembelian pakaian dalam setahun', 'Benefit', 5),
-(8, 'C6', 'Lantai Tempat Tinggal', 'Benefit', 10),
-(9, 'C7', 'Dinding Tempat Tinggal', 'Benefit', 10),
-(10, 'C8', 'Tempat BAB / BAK', 'Benefit', 10),
-(11, 'C9', 'Sumber Penerangan', 'Benefit', 10),
-(12, 'C10', 'Hak Aset ', 'Benefit', 5);
+(1, 'C1', 'Penghasilan', 'Benefit', 0.292),
+(3, 'C2', 'Hak Aset', 'Benefit', 0.192),
+(4, 'C3', 'Kepemilikan Rumah', 'Benefit', 0.142),
+(6, 'C4', 'Dinding Tempat Tinggal', 'Benefit', 0.109),
+(7, 'C5', 'Tempat BAB/BAK', 'Benefit', 0.084),
+(8, 'C6', 'Sumber Penerangan', 'Benefit', 0.064),
+(9, 'C7', 'Lantai Tempat Tinggal', 'Benefit', 0.047),
+(10, 'C8', 'Jumlah Hutang Dalam Setahun', 'Benefit', 0.033),
+(11, 'C9', 'Presentase Pengeluaran Pembelian Makanan Dalam Seminggu (Terhadap Penghasilan)', 'Benefit', 0.021),
+(12, 'C10', 'Pembelian Pakaian Dalam Setahun', 'Benefit', 0.01);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kuisioner`
+-- Struktur dari tabel `kuisioner`
 --
 
 CREATE TABLE `kuisioner` (
@@ -131,7 +132,7 @@ CREATE TABLE `kuisioner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kuisioner`
+-- Dumping data untuk tabel `kuisioner`
 --
 
 INSERT INTO `kuisioner` (`id_kuisioner`, `id_kriteria`, `id_detail_periode`, `id_petugas`, `id_rentang`) VALUES
@@ -335,16 +336,16 @@ INSERT INTO `kuisioner` (`id_kuisioner`, `id_kriteria`, `id_detail_periode`, `id
 (408, 10, 40, 6, 38),
 (409, 11, 40, 6, 40),
 (410, 12, 40, 6, 45),
-(412, 1, 41, 2, 18),
-(413, 3, 41, 2, 8),
-(414, 4, 41, 2, 11),
-(415, 6, 41, 2, 22),
-(416, 7, 41, 2, 26),
-(417, 8, 41, 2, 30),
-(418, 9, 41, 2, 33),
+(412, 1, 41, 2, 17),
+(413, 3, 41, 2, 7),
+(414, 4, 41, 2, 12),
+(415, 6, 41, 2, 21),
+(416, 7, 41, 2, 25),
+(417, 8, 41, 2, 29),
+(418, 9, 41, 2, 34),
 (419, 10, 41, 2, 38),
-(420, 11, 41, 2, 42),
-(421, 12, 41, 2, 45),
+(420, 11, 41, 2, 40),
+(421, 12, 41, 2, 46),
 (422, 1, 42, 2, 2),
 (423, 3, 42, 2, 6),
 (424, 4, 42, 2, 10),
@@ -555,41 +556,61 @@ INSERT INTO `kuisioner` (`id_kuisioner`, `id_kriteria`, `id_detail_periode`, `id
 (629, 10, 62, 2, 37),
 (630, 11, 62, 2, 41),
 (631, 12, 62, 2, 45),
-(632, 1, 63, 2, 17),
+(632, 1, 63, 2, 18),
 (633, 3, 63, 2, 7),
-(634, 4, 63, 2, 10),
+(634, 4, 63, 2, 12),
 (635, 6, 63, 2, 21),
-(636, 7, 63, 2, 24),
+(636, 7, 63, 2, 25),
 (637, 8, 63, 2, 29),
-(638, 9, 63, 2, 32),
+(638, 9, 63, 2, 34),
 (639, 10, 63, 2, 37),
-(640, 11, 63, 2, 40),
-(641, 12, 63, 2, 43),
-(642, 1, 64, 2, 2),
-(643, 3, 64, 2, 8),
-(644, 4, 64, 2, 10),
+(640, 11, 63, 2, 41),
+(641, 12, 63, 2, 45),
+(642, 1, 64, 2, 17),
+(643, 3, 64, 2, 7),
+(644, 4, 64, 2, 12),
 (645, 6, 64, 2, 21),
-(646, 7, 64, 2, 26),
-(647, 8, 64, 2, 29),
-(648, 9, 64, 2, 33),
-(649, 10, 64, 2, 37),
+(646, 7, 64, 2, 25),
+(647, 8, 64, 2, 30),
+(648, 9, 64, 2, 34),
+(649, 10, 64, 2, 38),
 (650, 11, 64, 2, 42),
-(651, 12, 64, 2, 44),
+(651, 12, 64, 2, 46),
 (652, 1, 65, 2, 17),
 (653, 3, 65, 2, 7),
-(654, 4, 65, 2, 11),
-(655, 6, 65, 2, 22),
-(656, 7, 65, 2, 26),
-(657, 8, 65, 2, 29),
-(658, 9, 65, 2, 33),
+(654, 4, 65, 2, 12),
+(655, 6, 65, 2, 21),
+(656, 7, 65, 2, 25),
+(657, 8, 65, 2, 30),
+(658, 9, 65, 2, 34),
 (659, 10, 65, 2, 37),
 (660, 11, 65, 2, 41),
-(661, 12, 65, 2, 44);
+(661, 12, 65, 2, 46),
+(682, 1, 70, 2, 17),
+(683, 3, 70, 2, 7),
+(684, 4, 70, 2, 12),
+(685, 6, 70, 2, 21),
+(686, 7, 70, 2, 25),
+(687, 8, 70, 2, 29),
+(688, 9, 70, 2, 34),
+(689, 10, 70, 2, 38),
+(690, 11, 70, 2, 40),
+(691, 12, 70, 2, 46),
+(692, 1, 71, 2, 1),
+(693, 3, 71, 2, 6),
+(694, 4, 71, 2, 12),
+(695, 6, 71, 2, 20),
+(696, 7, 71, 2, 24),
+(697, 8, 71, 2, 29),
+(698, 9, 71, 2, 32),
+(699, 10, 71, 2, 36),
+(700, 11, 71, 2, 41),
+(701, 12, 71, 2, 44);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penerima_bantuan`
+-- Struktur dari tabel `penerima_bantuan`
 --
 
 CREATE TABLE `penerima_bantuan` (
@@ -603,7 +624,7 @@ CREATE TABLE `penerima_bantuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `penerima_bantuan`
+-- Dumping data untuk tabel `penerima_bantuan`
 --
 
 INSERT INTO `penerima_bantuan` (`id_penerima_bantuan`, `nik`, `nama`, `angkatan`, `alamat`, `kategori`, `status_bantuan`) VALUES
@@ -661,7 +682,7 @@ INSERT INTO `penerima_bantuan` (`id_penerima_bantuan`, `nik`, `nama`, `angkatan`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `periode`
+-- Struktur dari tabel `periode`
 --
 
 CREATE TABLE `periode` (
@@ -672,7 +693,7 @@ CREATE TABLE `periode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `periode`
+-- Dumping data untuk tabel `periode`
 --
 
 INSERT INTO `periode` (`id_periode`, `nama_periode`, `tgl_dimulai`, `tgl_berakhir`) VALUES
@@ -684,7 +705,7 @@ INSERT INTO `periode` (`id_periode`, `nama_periode`, `tgl_dimulai`, `tgl_berakhi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `petugas`
+-- Struktur dari tabel `petugas`
 --
 
 CREATE TABLE `petugas` (
@@ -693,26 +714,26 @@ CREATE TABLE `petugas` (
   `nohp` varchar(15) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(32) NOT NULL,
+  `password` varchar(65) NOT NULL,
   `foto` varchar(20) NOT NULL,
   `level` varchar(10) NOT NULL,
   `status` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `petugas`
+-- Dumping data untuk tabel `petugas`
 --
 
 INSERT INTO `petugas` (`id_petugas`, `nama`, `nohp`, `alamat`, `username`, `password`, `foto`, `level`, `status`) VALUES
-(2, 'Novika Triana', '081231029995', 'Jl. Tugu Ds. Sugihwaras Kec. Saradan ', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', 'novika.PNG', 'Admin', 'aktif'),
-(6, 'Cinta Kirana', '081231045678', 'Jl. Punden Ds. Sugihwaras Kec. Saradan', 'Cinta', '827ccb0eea8a706c4c34a16891f84e7b', 'testimonial-33.jpg', 'Superadmin', 'pasif'),
-(8, 'Ridwan Fadilla', '081231029995', 'Jl. Mangga Dsn. Cabe Ds. Sugihwaras ', 'superadmin', '827ccb0eea8a706c4c34a16891f84e7b', 'testimonial-42.jpg', 'Superadmin', 'aktif'),
-(9, 'Nabila Fifin', '081231045678', 'Ds. Sugihwaras Kec. Saradan Kab. Madiun', 'novika', 'b88bf1e6afb212abbe645848e3f36a13', 'karina.jpg', 'Admin', 'aktif');
+(2, 'Novika Triana', '081231029995', 'Jl. Tugu Ds. Sugihwaras Kec. Saradan ', 'admin', '$2y$10$vSEF3ViA/F1DRrgDHAEjXuI8VjopSrxMPid/mrq0N/w7klcuzs1La', 'novika.PNG', 'Admin', 'aktif'),
+(6, 'Cinta Kirana', '081231045678', 'Jl. Punden Ds. Sugihwaras Kec. Saradan', 'Cinta', '$2y$10$vSEF3ViA/F1DRrgDHAEjXuI8VjopSrxMPid/mrq0N/w7klcuzs1La', 'testimonial-33.jpg', 'Superadmin', 'pasif'),
+(8, 'Ridwan Fadilla', '081231029995', 'Jl. Mangga Dsn. Cabe Ds. Sugihwaras ', 'superadmin', '$2y$10$vSEF3ViA/F1DRrgDHAEjXuI8VjopSrxMPid/mrq0N/w7klcuzs1La', 'testimonial-42.jpg', 'Superadmin', 'aktif'),
+(9, 'Nabila Fifin', '081231045678', 'Ds. Sugihwaras Kec. Saradan Kab. Madiun', 'novika', '$2y$10$vSEF3ViA/F1DRrgDHAEjXuI8VjopSrxMPid/mrq0N/w7klcuzs1La', 'karina.jpg', 'Admin', 'aktif');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rentang_nilai`
+-- Struktur dari tabel `rentang_nilai`
 --
 
 CREATE TABLE `rentang_nilai` (
@@ -723,57 +744,57 @@ CREATE TABLE `rentang_nilai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rentang_nilai`
+-- Dumping data untuk tabel `rentang_nilai`
 --
 
 INSERT INTO `rentang_nilai` (`id_rentang`, `id_kriteria`, `jenis_rentang`, `nilai`) VALUES
-(1, 1, 'Tidak Punya', 1),
-(2, 1, 'Menumpang', 2),
-(5, 3, 'Tidak Bekerja', 1),
-(6, 3, '< 1000000', 2),
-(7, 3, '1000000 - 2000000', 3),
-(8, 3, '> 2000000', 4),
-(9, 4, '> 3 kali', 1),
-(10, 4, '2 kali', 2),
-(11, 4, '1 kali', 3),
-(12, 4, 'Tidak Pernah', 4),
-(17, 1, 'Sewa', 3),
-(18, 1, 'Milik Sendiri', 4),
-(19, 6, '>75%', 1),
-(20, 6, '50% - 75 %', 2),
-(21, 6, '25% - 50 %', 3),
-(22, 6, '< 25 %', 4),
-(23, 7, '0', 1),
-(24, 7, '1 kali', 2),
-(25, 7, '2 kali', 3),
-(26, 7, '> 3 kali', 4),
-(27, 8, 'Tanah', 1),
-(28, 8, 'Plester', 2),
-(29, 8, 'Ubin', 3),
-(30, 8, 'Keramik', 4),
-(31, 9, 'Kayu, Bambu, Kawat', 1),
-(32, 9, 'Tembok tanpa plester', 2),
-(33, 9, 'Tembok plester / Papan kayu plitur', 3),
-(34, 9, 'Tembok Keramik', 4),
-(35, 10, 'Tidak Ada', 1),
-(36, 10, 'Cubluk', 2),
-(37, 10, 'Jongkok', 3),
-(38, 10, 'Duduk', 4),
-(39, 11, 'Tidak Ada', 1),
-(40, 11, '450 Watt', 2),
-(41, 11, '900 Watt', 3),
-(42, 11, '1300 Watt', 4),
-(43, 12, 'Tidak Ada', 1),
-(44, 12, '1', 2),
-(45, 12, '2', 3),
-(46, 12, '> 3', 4);
+(1, 1, 'Tidak Bekerja', 1),
+(2, 1, '< 1 Juta', 2),
+(5, 3, 'Tidak Ada', 1),
+(6, 3, '1', 2),
+(7, 3, '2', 3),
+(8, 3, '> 3', 4),
+(9, 4, 'Tidak Punya', 1),
+(10, 4, 'Menumpang', 2),
+(11, 4, 'Sewa', 3),
+(12, 4, 'Milik Sendiri', 4),
+(17, 1, '1 Juta - 2 Juta', 3),
+(18, 1, '> 2 Juta', 4),
+(19, 6, 'Kayu, Bambu, Kawat', 1),
+(20, 6, 'Tembok Tanpa Plester', 2),
+(21, 6, 'Tembok Plester', 3),
+(22, 6, 'Tembok Kramik', 4),
+(23, 7, 'Tidak Ada', 1),
+(24, 7, 'Cubluk', 2),
+(25, 7, 'Jongkok', 3),
+(26, 7, 'Duduk', 4),
+(27, 8, 'Tidak Ada', 1),
+(28, 8, '450 Watt', 2),
+(29, 8, '900 Watt', 3),
+(30, 8, '1300 Watt', 4),
+(31, 9, 'Tanah', 1),
+(32, 9, 'Plester', 2),
+(33, 9, 'Ubin', 3),
+(34, 9, 'Kramik', 4),
+(35, 10, '> 3 Kali', 1),
+(36, 10, '2 Kali', 2),
+(37, 10, '1 Kali', 3),
+(38, 10, 'Tidak Pernah', 4),
+(39, 11, '> 75%', 1),
+(40, 11, '50% - 75%', 2),
+(41, 11, '25% - 50%', 3),
+(42, 11, '<25%', 4),
+(43, 12, '0', 1),
+(44, 12, '1 Kali', 2),
+(45, 12, '2 Kali', 3),
+(46, 12, '>3 Kali', 4);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `detail_periode`
+-- Indeks untuk tabel `detail_periode`
 --
 ALTER TABLE `detail_periode`
   ADD PRIMARY KEY (`id_detail_periode`),
@@ -781,13 +802,13 @@ ALTER TABLE `detail_periode`
   ADD KEY `id_periode` (`id_periode`);
 
 --
--- Indexes for table `kriteria`
+-- Indeks untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`id_kriteria`);
 
 --
--- Indexes for table `kuisioner`
+-- Indeks untuk tabel `kuisioner`
 --
 ALTER TABLE `kuisioner`
   ADD PRIMARY KEY (`id_kuisioner`),
@@ -797,89 +818,89 @@ ALTER TABLE `kuisioner`
   ADD KEY `rentang` (`id_rentang`);
 
 --
--- Indexes for table `penerima_bantuan`
+-- Indeks untuk tabel `penerima_bantuan`
 --
 ALTER TABLE `penerima_bantuan`
   ADD PRIMARY KEY (`id_penerima_bantuan`);
 
 --
--- Indexes for table `periode`
+-- Indeks untuk tabel `periode`
 --
 ALTER TABLE `periode`
   ADD PRIMARY KEY (`id_periode`);
 
 --
--- Indexes for table `petugas`
+-- Indeks untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
   ADD PRIMARY KEY (`id_petugas`);
 
 --
--- Indexes for table `rentang_nilai`
+-- Indeks untuk tabel `rentang_nilai`
 --
 ALTER TABLE `rentang_nilai`
   ADD PRIMARY KEY (`id_rentang`),
   ADD KEY `id_kriteria` (`id_kriteria`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `detail_periode`
+-- AUTO_INCREMENT untuk tabel `detail_periode`
 --
 ALTER TABLE `detail_periode`
-  MODIFY `id_detail_periode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id_detail_periode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT for table `kriteria`
+-- AUTO_INCREMENT untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
-  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `kuisioner`
+-- AUTO_INCREMENT untuk tabel `kuisioner`
 --
 ALTER TABLE `kuisioner`
-  MODIFY `id_kuisioner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=662;
+  MODIFY `id_kuisioner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=702;
 
 --
--- AUTO_INCREMENT for table `penerima_bantuan`
+-- AUTO_INCREMENT untuk tabel `penerima_bantuan`
 --
 ALTER TABLE `penerima_bantuan`
-  MODIFY `id_penerima_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_penerima_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
--- AUTO_INCREMENT for table `periode`
+-- AUTO_INCREMENT untuk tabel `periode`
 --
 ALTER TABLE `periode`
-  MODIFY `id_periode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_periode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `petugas`
+-- AUTO_INCREMENT untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
   MODIFY `id_petugas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `rentang_nilai`
+-- AUTO_INCREMENT untuk tabel `rentang_nilai`
 --
 ALTER TABLE `rentang_nilai`
-  MODIFY `id_rentang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_rentang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `detail_periode`
+-- Ketidakleluasaan untuk tabel `detail_periode`
 --
 ALTER TABLE `detail_periode`
   ADD CONSTRAINT `detail_periode_ibfk_1` FOREIGN KEY (`id_penerima_bantuan`) REFERENCES `penerima_bantuan` (`id_penerima_bantuan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `detail_periode_ibfk_2` FOREIGN KEY (`id_periode`) REFERENCES `periode` (`id_periode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `kuisioner`
+-- Ketidakleluasaan untuk tabel `kuisioner`
 --
 ALTER TABLE `kuisioner`
   ADD CONSTRAINT `id_detail_periode` FOREIGN KEY (`id_detail_periode`) REFERENCES `detail_periode` (`id_detail_periode`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -888,7 +909,7 @@ ALTER TABLE `kuisioner`
   ADD CONSTRAINT `rentang` FOREIGN KEY (`id_rentang`) REFERENCES `rentang_nilai` (`id_rentang`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rentang_nilai`
+-- Ketidakleluasaan untuk tabel `rentang_nilai`
 --
 ALTER TABLE `rentang_nilai`
   ADD CONSTRAINT `rentang_nilai_ibfk_1` FOREIGN KEY (`id_kriteria`) REFERENCES `kriteria` (`id_kriteria`) ON DELETE CASCADE ON UPDATE CASCADE;
