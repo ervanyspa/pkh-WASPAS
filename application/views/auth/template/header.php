@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="<?= base_url()?>assets/bundles/jquery-selectric/selectric.css">
   <!-- Custom style CSS -->
   <link rel="stylesheet" href="<?= base_url()?>assets/css/custom.css">
-  <link rel='shortcut icon' type='image/x-icon' href='<?= base_url()?>assets/img/favicon.ico' />
+  <link rel='shortcut icon' type='image/x-icon' href='<?= base_url() ?>assets/img/image-gallery/PKH.png' />
 </head>
 
 <body>

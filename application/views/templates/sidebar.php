@@ -15,6 +15,7 @@
 					<li class="<?php echo ($this->uri->segment(1) === 'periode_graduasi') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>periode_graduasi">Periode Graduasi</a></li>
 					<li class="<?php echo ($this->uri->segment(1) === 'penerima_bantuan') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>penerima_bantuan">Data Penerima Bantuan</a></li>
 					<li class="<?php echo ($this->uri->segment(1) === 'kriteria_bobot') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>kriteria_bobot">Data Kriteria dan Bobot</a></li>
+					<li class="<?php echo ($this->uri->segment(1) === 'data_user') ? 'active' : '' ?>"><a class="nav-link" href="<?php echo base_url() ?>data_user">Data User</a></li>
 				</ul>
 			</li>
 			<li class="dropdown <?php echo ($this->uri->segment(1) == 'peserta_graduasi') ? 'active' : '' ?>">
