@@ -10,13 +10,13 @@
 							<div class="p-2 align-right">
 								<h6>Total</h6>
 								<?php $jumlahcl = 0;
-foreach ($calon as $cl) {
-    $jumlahcl ++;
-} ?>
+							foreach ($calon as $cl) {
+								$jumlahcl ++;
+							} ?>
 								<h6><?= $jumlahcl ?></h6>
 							</div>
 							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-success" data-toggle="modal" data-target="#tambahPesertaGraduasi"><i class="fas fa-plus"></i> Tambah Data</a></div>
-							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-warning" data-toggle="modal" data-target="#prosesPenilaian"></i> Proses Penilaian</a></div>
+							<div class="p-2"><a href="<?= base_url() ?>peserta_graduasi/proses_penilaian" class="btn btn-icon icon-left btn-warning"></i> Proses Penilaian</a></div>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -33,7 +33,7 @@ foreach ($calon as $cl) {
 									</thead>
 									<tbody>
 										<?php $no = 1;
-foreach ($penerima as $prm) { ?>
+										foreach ($penerima as $prm) { ?>
 										<tr id="<?= $prm['id_detail_periode'] ?>">
 											<td><?= $no++ ?></td>
 											<td><?= $prm['nama'] ?></td>

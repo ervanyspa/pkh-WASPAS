@@ -154,7 +154,7 @@
 
                                                         }
                                                     } if ($cek > 0) { ?>
-                                                        <td class="col-md-1 text-center"><?= number_format($normalisasi, 2) ?></td>
+                                                        <td class="col-md-1 text-center"><?= number_format($normalisasi, 3) ?></td>
                                                     <?php } ?>
                                                 <?php } ?>
 
@@ -187,13 +187,26 @@
 									<tbody>
 									<?php 
                                         $no = 1;
+										function cariMultiplikasi($array) {
+											$output = 1;
+    
+											foreach ($array as $x) {
+												$output *= $x; 
+											}
+											
+											return $output;
+										}
+
                                         foreach($penerima as $prm) { ?>
                                             <tr>
                                                 <th class="col-md-1 text-center"><?= $no++; ?></th>
                                                 <td ><?= $prm['nama'] ?></td>
 
-                                                <?php 
-                                                $total = 0;
+                                                <?php
+
+												$perkalian = array(); 
+												$pangkat = array();
+
                                                 foreach($kriteria as $ktr) {
 
                                                     $cek = 0;
@@ -206,21 +219,29 @@
                                                                 $max = $ktr['max']->nilai;
                                                                 $normalisasi = $nilai/$max;
                                                                 $preferensi  = $normalisasi * $ktr['bobot'];
-                                                                $total+= $preferensi;
+																$preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
+																array_push($perkalian, $preferensi);
+																array_push($pangkat, $preferensi2);
+                                                                // $total+= $preferensi;
                                                             } else {
                                                                 $min = $ktr['min']->nilai;
                                                                 $normalisasi = $min/$nilai;
                                                                 $preferensi  = $normalisasi * $ktr['bobot'];
-                                                                $total+= $preferensi;
+																$preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
+																array_push($perkalian, $preferensi);
+																array_push($pangkat, $preferensi2);
+                                                                // $total+= $preferensi;
                                                             }
 
                                                         }
                                                     } 
 
-                                                } ?>
+                                                } 
+												$total = 0.5 * array_sum($perkalian) + 0.5 * cariMultiplikasi($pangkat);
+												?>
 
 
-                                                <td class="col-md-1 text-center"><?php echo number_format($total, 2) ?></td>
+                                                <td class="col-md-1 text-center"><?php echo number_format($total, 3) ?></td>
                                             </tr>
 
                                         <?php } ?>

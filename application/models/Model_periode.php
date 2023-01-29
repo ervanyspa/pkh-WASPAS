@@ -23,4 +23,9 @@ class Model_periode extends CI_Model {
 		$this->db->where($where);
 		return $this->db->get();
 	}
+
+	public function tampil_data1($where){
+		$this->db->where($where);
+		return $this->db->get('periode')->result_array();
+	}
 }
