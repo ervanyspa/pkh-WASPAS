@@ -8,6 +8,7 @@
                         <div class="col-12">
                             <div class="card-header d-block">
                                 <h1 class="mx-auto col-black  d-flex justify-content-center">GRADUASI</h1>
+                                <h5 class="mx-auto col-black  d-flex justify-content-center">DESA UTERAN</h5>
 								<img src="<?= base_url() ?>assets/img/image-gallery/PKH.png" width="250" class="mx-auto col-black  d-flex justify-content-center align-top mr-2">
                             </div>
                             <div class="card-body">
