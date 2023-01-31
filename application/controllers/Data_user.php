@@ -133,5 +133,28 @@ class Data_user extends CI_Controller
 		$this->db->delete('petugas', array('id_petugas' => $id_petugas));
 	}
 
+	public function update_password($id_petugas)
+	{
+        $password       = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+
+		$data2 = array(
+            'password'      => $password,
+            
+        );
+
+		$where2 = array('id_petugas' => $id_petugas);
+		$this->db->update('petugas', $data2, $where2);
+		
+		$this->session->set_flashdata(
+			'berhasil_petugas',
+			'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+						<script type ="text/JavaScript">  
+						swal("Sukses","Password Berhasil Diubah","success"); 
+						</script>'
+		);
+
+		redirect('data_user');
+		
+	}
 
 }
