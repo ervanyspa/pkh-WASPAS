@@ -27,7 +27,7 @@
 										<div class="input-group">
                                         	<input id="password" type="password" class="form-control" name="password" tabindex="2" >
 										<div class="input-group-append">
-											<div class="input-group-text"><i class="fas fa-eye-slash " id="togglePassword"></i></div>
+											<div class="input-group-text"><i class="fas fa-eye " id="eyeIcon"></i></div>
 										</div>				
 										</div>										
 										<span class="d-flex ml-2 text-danger"><?php echo $this->session->flashdata('err_password') ?></span>
@@ -50,17 +50,24 @@
         </div>
     </div>
 </section>
-<script>
-        const togglePassword = document.querySelector("#togglePassword");
-        const password = document.querySelector("#password");
+<script type="text/javascript">
+	let passwordInput = document.getElementById('password'),
+		icon = document.getElementById('eyeIcon');
 
-        togglePassword.addEventListener("click", function () {
-            // toggle the type attribute
-            const type = password.getAttribute("type") === "password" ? "text" : "password";
-            password.setAttribute("type", type);
-            
-            // toggle the icon
-            this.classList.toggle("far fa-eye");
-        });
+	function togglePassword() {
+		if (passwordInput.type === 'password') {
+			passwordInput.type = 'text';
+			icon.classList.add("fa-eye-slash");
+			//toggle.innerHTML = 'hide';
+		} else {
+			passwordInput.type = 'password';
+			icon.classList.remove("fa-eye-slash");
+			//toggle.innerHTML = 'show';
+		}
+	}
 
-    </script>
+	function checkInput() {}
+
+	icon.addEventListener('click', togglePassword, false);
+	passwordInput.addEventListener('keyup', checkInput, false);
+</script>

@@ -9,7 +9,7 @@ class Peserta_graduasi extends CI_Controller
 	{
 
 		parent::__construct();
-		if ($this->session->userdata('level') != 'Admin') {
+		if ($this->session->userdata('level') == null) {
 			$this->session->set_flashdata(
 				'flashdata_login',
 				'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>

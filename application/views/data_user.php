@@ -37,10 +37,10 @@
 												<td><?= $usr['level'] ?></td>
 												<td><?= $usr['username'] ?></td>
 												<td>
-													<?php if ($usr['status'] == 'aktif') { ?>
-														<span class="badge badge-success"><?= $usr['status'] ?></span>
+													<?php if ($usr['status'] == 'Aktif') { ?>
+														<span class="badge badge-success">Aktif</span>
 													<?php } else { ?>
-														<span class="badge badge-danger"><?= $usr['status'] ?></span>
+														<span class="badge badge-danger">Pasif</span>
 													<?php } ?>
 												</td>
 												<td>

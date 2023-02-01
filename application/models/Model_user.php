@@ -15,4 +15,12 @@ class Model_user extends CI_Model {
 		$this->db->update($table, $data);
 		
 	}
+
+	public function get_user_by_id($id_petugas){
+        $this->db->select('*');
+        $this->db->from('petugas');
+		$this->db->where('id_petugas', $id_petugas);
+
+        return $this->db->get();
+    }
 }

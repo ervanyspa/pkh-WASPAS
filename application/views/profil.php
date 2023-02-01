@@ -12,9 +12,9 @@
 								<img alt="image" src="assets/img/users/user-1.png" class="rounded-circle author-box-picture">
 								<div class="clearfix"></div>
 								<div class="author-box-name">
-									<a href="#">Sarah Smith</a>
+									<a href="#"><?= $petugas['nama'] ?></a>
 								</div>
-								<div class="author-box-job">Web Developer</div>
+								<div class="author-box-job"><?= $petugas['level'] ?></div>
 							</div>
 							<div class="d-flex justify-content-center">
 								<div class="p-2"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editProfil">Edit Profil</a></div>
@@ -25,17 +25,17 @@
 									<div>
 										<strong>Username</strong>
 										<br>
-										<p class="text-muted border-bottom">Emily Smith</p>
+										<p class="text-muted border-bottom"><?= $petugas['username'] ?></p>
 									</div>
 									<div>
 										<strong>No. Hp</strong>
 										<br>
-										<p class="text-muted border-bottom">Emily Smith</p>
+										<p class="text-muted border-bottom"><?= $petugas['nohp'] ?></p>
 									</div>
 									<div>
 										<strong>Alamat</strong>
 										<br>
-										<p class="text-muted border-bottom">Ponorogo</p>
+										<p class="text-muted border-bottom"><?= $petugas['alamat'] ?></p>
 									</div>
 								</div>
 							</div>
@@ -61,31 +61,31 @@
 						<div class="form-group">
 							<label>Nama</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nama">
+								<input type="text" class="form-control" placeholder="" name="nama" value="<?= $petugas['nama'] ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label>Alamat</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nama">
+								<input type="text" class="form-control" placeholder="" name="alamat" value="<?= $petugas['alamat'] ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label>No. HP</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nama">
+								<input type="text" class="form-control" placeholder="" name="nohp" value="<?= $petugas['nohp'] ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label>Username</label>
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="" name="nama">
+								<input type="text" class="form-control" placeholder="" name="username" value="<?= $petugas['username'] ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label>Foto Profil</label>
 							<div class="input-group">
-								<input type="file" class="form-control" placeholder="" name="nama">
+								<input type="file" class="form-control" placeholder="" name="foto">
 							</div>
 						</div>
 						<div class="form-group align-right">
