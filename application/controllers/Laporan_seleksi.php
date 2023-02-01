@@ -197,4 +197,48 @@ class Laporan_seleksi extends CI_Controller
         // run dompdf
         $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
+
+	public function PrintDetail($id)
+    {
+        $where = array(
+            'detail_periode.id_periode'  => $id
+        );
+        $data['kuisioner'] = $this->Model_perhitungan->tampil_nilaiAwal($where)->result_array();
+        $data['penerima'] = $this->Model_calon->tampil_detail($where)->result_array();
+        $data['rentang_nilai'] = $this->Model_kriteria_bobot->get_data('rentang_nilai')->result_array();
+        $data['kriteria'] = $this->Model_kriteria_bobot->get_data('kriteria')->result_array();
+        // Memanggil id untuk judul halaman print
+        $where3 = array(
+            'id_periode'  => $id
+        );
+        $data['periode'] = $this->Model_periode->tampil_data1($where3);
+        // echo print_r($data['kriteria']);
+        $a = 0;
+        $i = 0;
+        foreach($data['kriteria'] AS $ktr){
+            $where = array(
+                'kuisioner.id_kriteria'  => $ktr['id_kriteria'],
+                'detail_periode.id_periode'  => $id
+            );
+            $data['kriteria'][$a++]['max']= $this->Model_perhitungan->getmax($where)->row();
+            $data['kriteria'][$i++]['min']= $this->Model_perhitungan->getmin($where)->row();
+        }
+
+        $this->load->library('pdfgenerator');
+
+        // filename dari pdf ketika didownload
+		foreach($data['periode'] as $prd) {
+			$nama_periode = $prd['nama_periode'];
+		}
+
+        $file_pdf = 'Detail Perhitungan Rekomendasi Graduasi PKH - '. $nama_periode;
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "portrait";
+        $html = $this->load->view('pdf/view_printDetail', $data, true);
+
+        // run dompdf
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
+    }
 }

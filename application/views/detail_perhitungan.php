@@ -6,7 +6,7 @@
 					<div class="card">
 						<div class="card-header d-flex">
 							<h4 class="mr-auto">Detail Perhitungan</h4>
-							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-success"><i class="fas fa-print"></i> Cetak Hasil Perhitungan</a></div>
+							<div class="p-2"><a target="_blank" href="<?php echo base_url('laporan_seleksi/PrintDetail/'.$id_periode)?>" class="btn btn-icon icon-left btn-success"><i class="fas fa-print"></i> Cetak Hasil Perhitungan</a></div>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
