@@ -116,8 +116,8 @@
 									<input type="date" class="form-control" value="<?php echo $prd['tgl_berakhir'] ?>" name="tgl_berakhir">
 								</div>
 							</div>
-							<div class="form-group align-right">								
-								<button type="cancel" name="cancel"  class="btn btn-secondary waves-effect mr-1">Batal</button>
+							<div class="form-group align-right">
+								<button type="cancel" name="cancel" class="btn btn-secondary waves-effect mr-1">Batal</button>							
 								<button type="submit" name="submit" class="btn btn-primary waves-effect">Simpan</button>
 							</div>
 						</form>

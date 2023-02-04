@@ -126,9 +126,6 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="formModal">Edit Data Penerima Bantuan</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
 					</div>
 					<div class="modal-body">
 						<form class="" action="<?= base_url() ?>penerima_bantuan/update_penerima/<?php echo $prm['id_penerima_bantuan'] ?>" method="post" enctype="multipart/form-data">
@@ -172,7 +169,8 @@
 								</select>
 							</div>
 							<div class="form-group align-right">
-								<button type="submit" class="btn btn-primary waves-effect">Simpan</button>
+								<button type="cancel" name="cancel" class="btn btn-secondary waves-effect mr-1">Batal</button>		
+								<button type="submit" name="submit" class="btn btn-primary waves-effect">Simpan</button>
 							</div>
 						</form>
 					</div>

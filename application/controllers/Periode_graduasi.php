@@ -86,7 +86,7 @@ class Periode_graduasi extends CI_Controller
 				'berhasil_periode',
 				'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 								<script type ="text/JavaScript">  
-								swal("Gagal","Data Periode Batal Diubah","error"); 
+								swal("Batal","Data Periode Batal Diubah","info"); 
 								</script>'
 			);
 
