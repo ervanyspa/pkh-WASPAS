@@ -27,4 +27,9 @@ class Profil extends CI_Controller
 		$this->load->view('profil', $data);
 		$this->load->view('templates/footer');
 	}
+
+	public function update_profil()
+	{
+		
+	}
 }

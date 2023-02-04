@@ -9,7 +9,7 @@
 						</div>
 						<div class="card-body">
 							<div class="author-box-center">
-								<img alt="image" src="assets/img/users/user-1.png" class="rounded-circle author-box-picture">
+								<img alt="image" src="<?= base_url('assets/img/uploads/') . $petugas['foto'] ?>" class="rounded-circle author-box-picture">
 								<div class="clearfix"></div>
 								<div class="author-box-name">
 									<a href="#"><?= $petugas['nama'] ?></a>

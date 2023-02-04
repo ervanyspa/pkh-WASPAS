@@ -31,54 +31,67 @@ class Periode_graduasi extends CI_Controller
 
 	public function tambah_periode()
 	{
-		$nama_periode  = $this->input->post('nama_periode');
-        $tgl_dimulai   = $this->input->post('tgl_dimulai');
-        $tgl_berakhir  = $this->input->post('tgl_berakhir');
+			$nama_periode  = $this->input->post('nama_periode');
+			$tgl_dimulai   = $this->input->post('tgl_dimulai');
+			$tgl_berakhir  = $this->input->post('tgl_berakhir');
 
-		$data2 = array(
-            'nama_periode'         => $nama_periode,
-            'tgl_dimulai'          => $tgl_dimulai,
-            'tgl_berakhir'         => $tgl_berakhir,
-            
-        );
+			$data2 = array(
+				'nama_periode'         => $nama_periode,
+				'tgl_dimulai'          => $tgl_dimulai,
+				'tgl_berakhir'         => $tgl_berakhir,
 
-		$this->db->insert('periode', $data2);
-		$this->session->set_flashdata(
-			'berhasil_periode',
-			'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-						<script type ="text/JavaScript">  
-						swal("Sukses","Data Periode Berhasil Ditambah","success"); 
-						</script>'
-		);
+			);
 
-		redirect('periode_graduasi');
+			$this->db->insert('periode', $data2);
+			$this->session->set_flashdata(
+				'berhasil_periode',
+				'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+								<script type ="text/JavaScript">  
+								swal("Sukses","Data Periode Berhasil Ditambah","success"); 
+								</script>'
+			);
+
+			redirect('periode_graduasi');		
 	}
 
 	public function update_periode($id_periode)
 	{
-		$nama_periode  = $this->input->post('nama_periode');
-        $tgl_dimulai   = $this->input->post('tgl_dimulai');
-        $tgl_berakhir  = $this->input->post('tgl_berakhir');
+		if (isset($_POST['submit'])) {
+			$nama_periode  = $this->input->post('nama_periode');
+			$tgl_dimulai   = $this->input->post('tgl_dimulai');
+			$tgl_berakhir  = $this->input->post('tgl_berakhir');
 
-		$data2 = array(
-            'nama_periode'         => $nama_periode,
-            'tgl_dimulai'          => $tgl_dimulai,
-            'tgl_berakhir'         => $tgl_berakhir,
-            
-        );
+			$data2 = array(
+				'nama_periode'         => $nama_periode,
+				'tgl_dimulai'          => $tgl_dimulai,
+				'tgl_berakhir'         => $tgl_berakhir,
 
-		$where2 = array('id_periode' => $id_periode);
-		$this->db->update('periode', $data2, $where2);
-		
-		$this->session->set_flashdata(
-			'berhasil_periode',
-			'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-						<script type ="text/JavaScript">  
-						swal("Sukses","Data Periode Berhasil Diubah","success"); 
-						</script>'
-		);
+			);
 
-		redirect('periode_graduasi');
+			$where2 = array('id_periode' => $id_periode);
+			$this->db->update('periode', $data2, $where2);
+
+			$this->session->set_flashdata(
+				'berhasil_periode',
+				'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+								<script type ="text/JavaScript">  
+								swal("Sukses","Data Periode Berhasil Diubah","success"); 
+								</script>'
+			);
+
+			redirect('periode_graduasi');
+		}
+		if (isset($_POST['cancel'])) {
+			$this->session->set_flashdata(
+				'berhasil_periode',
+				'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+								<script type ="text/JavaScript">  
+								swal("Gagal","Data Periode Batal Diubah","error"); 
+								</script>'
+			);
+
+			redirect('periode_graduasi');
+		}
 	}
 
 	public function delete_periode($id_periode) {
