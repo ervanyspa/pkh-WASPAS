@@ -188,7 +188,7 @@
 							<div class="form-group">
 								<label>Foto</label>
 								<div class="input-group">
-									<input type="file" class="form-control" placeholder="" name="foto" required>
+									<input type="file" class="form-control" placeholder="" name="foto">
 								</div>
 							</div>
 							<div class="form-group align-right">

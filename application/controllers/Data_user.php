@@ -88,43 +88,83 @@ class Data_user extends CI_Controller
         $level   	= $this->input->post('level');
         $status 	= $this->input->post('status');
 		$foto		= $_FILES['foto']['name'];
-		if ($foto	= '') {
-		}else {
+
+		if (!empty($foto)) { //gambar tdk kosong
 			$config['upload_path'] 		= './assets/img/uploads/';
 			$config['allowed_types'] 	= 'jpg|jpeg|png';
 			$config['file_name']		= 'usr' . date('dmyhis');
-
 			$this->load->library('upload', $config);
-			if (!$this->upload->do_upload('foto')) {
-				echo "Gambar Gagal diupload";
-			}else {
-				$foto = $this->upload->data('file_name');
-			}
-		}
 
-		$data2 = array(
-            'nama'      => $nama,
-            'alamat'    => $alamat,
-            'nohp'		=> $nohp,
-            'alamat'    => $alamat,
-            'username'	=> $username,
-            'foto'    	=> $foto,
-            'level'    	=> $level,
-            'status'    => $status
-            
-        );
+			if (!$this->upload->do_upload('foto')) { //gambar tidak terupload
+				
+				$data2 = array(
+					
+					'nama'      => $nama,
+            		'alamat'    => $alamat,
+					'nohp'		=> $nohp,
+					'alamat'    => $alamat,
+					'username'	=> $username,
+					'level'    	=> $level,
+					'status'    => $status
+				);
+				$this->session->set_flashdata(
+					'berhasil_petugas',
+					'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+								<script type ="text/JavaScript">  
+								swal("Gambar Gagal Diunggah","Data Petugas Berhasil Diubah, Gambar Gagal Diunggah","warning"); 
+								</script>'
+				);
+
+			}else { //gambar terupload
+				$this->db->select('foto')->from('petugas')->where('id_petugas', $id);
+				$query = $this->db->get();
+				if ($query->num_rows() > 0) { //hapus gambar sebelumnya
+					$img_name = $query->row()->foto;
+					unlink("./assets/img/uploads/" . $img_name);
+				}
+				//mengganti gambar
+				$foto = $this->upload->data('file_name');
+				$this->db->set('foto', $foto);
+				$data2 = array(
+					'nama'      => $nama,
+					'alamat'    => $alamat,
+					'nohp'		=> $nohp,
+					'alamat'    => $alamat,
+					'username'	=> $username,
+					'foto'    	=> $foto,
+					'level'    	=> $level,
+					'status'    => $status
+				);
+				$this->session->set_flashdata(
+					'berhasil_petugas',
+					'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+								<script type ="text/JavaScript">  
+								swal("Sukses","Data Petugas Berhasil Diubah","success"); 
+								</script>'
+				);
+			}
+		}else { //edit tanpa ganti gambar
+			$data2 = array(
+				'nama'      => $nama,
+				'alamat'    => $alamat,
+				'nohp'		=> $nohp,
+				'alamat'    => $alamat,
+				'username'	=> $username,
+				'level'    	=> $level,
+				'status'    => $status
+			);
+			$this->session->set_flashdata(
+				'berhasil_petugas',
+				'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+							<script type ="text/JavaScript">  
+							swal("Sukses","Data Petugas Berhasil Diubah","success"); 
+							</script>'
+			);
+		}
 
 		$where2 = array('id_petugas' => $id_petugas);
 		$this->db->update('petugas', $data2, $where2);
 		
-		$this->session->set_flashdata(
-			'berhasil_petugas',
-			'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
-						<script type ="text/JavaScript">  
-						swal("Sukses","Data Petugas Berhasil Diubah","success"); 
-						</script>'
-		);
-
 		redirect('data_user');
 	}
 
