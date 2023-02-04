@@ -10,12 +10,13 @@
 								<form action="<?= base_url() ?>laporan_seleksi/filter_hasil" method="post" enctype="multipart/form-data">
 									<div class="form-row mb-0">
 										<div class="form-group mb-0">
-											<input type="number" class="form-control" min="1" max="100" value="<?php echo $this->session->userdata('hasil')?>" placeholder="Inputkan nilai filter hasil (%)"   name="hasil" required>
+											<input type="number" class="form-control" min="1" max="100" value="<?php echo $this->session->userdata('hasil')?>" name="hasil" required>
 										</div>
 										<div class="ml-2">
 											<button type="submit" class="btn btn-success waves-effect">Simpan</button>
 										</div>
 									</div>
+									<small class="text-danger">* Inputkan nilai filter hasil (%)</small>
 								</form>
 							</div>
 							<div class="p-1"><a href="<?php echo base_url('laporan_seleksi/PrintHasil/'.$id_periode)?>" target="_blank" class="btn btn-icon icon-left btn-success"><i class="fas fa-print"></i> Cetak Hasil Rekomendasi</a></div>

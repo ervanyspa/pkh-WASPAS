@@ -119,7 +119,6 @@
 							<?php } ?>
 						</div>
 						<div class="form-group align-right">
-							<button type="cancel" class="btn btn-secondary waves-effect">Batal</button>
 							<button type="submit" class="btn btn-primary waves-effect">Simpan</button>
 						</div>
 					</form>
