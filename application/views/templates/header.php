@@ -69,7 +69,7 @@
 					</ul>
 				</div>
 				<ul class="navbar-nav navbar-right">
-					<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="<?php echo base_url() ?>assets/img/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+					<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img height="40px" width="40px" alt="image" src="<?= base_url('assets/img/uploads/') . $this->session->userdata('foto') ?>" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
 						<div class="dropdown-menu dropdown-menu-right pullDown"> <?php $nama = explode(' ', $this->session->userdata('nama')); ?>
 							<div class="dropdown-title">Hello <?= $nama[0] ?></div>
 							<a href="<?= base_url() ?>profil" class="dropdown-item has-icon"> <i class="far
