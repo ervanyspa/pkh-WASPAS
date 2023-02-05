@@ -77,7 +77,8 @@ class Profil extends CI_Controller
 						'alamat'    => $alamat,
 						'username'	=> $username,
 						'foto'    	=> $foto,
-					);
+					);					
+					$this->session->set_userdata('foto', $foto);
 					$this->session->set_flashdata(
 						'berhasil_profil',
 						'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
