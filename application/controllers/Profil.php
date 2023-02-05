@@ -145,7 +145,7 @@ class Profil extends CI_Controller
 					'berhasil_profil',
 					'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 										<script type ="text/JavaScript">  
-										swal("Sukses","Password Anda Salah","error"); 
+										swal("Gagal","Password Anda Salah","error"); 
 										</script>'
 				);
 				redirect('profil');
