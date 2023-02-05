@@ -107,7 +107,7 @@
 								<div class="form-group col-md-6">
 									<label><?php echo $ktr['jenis_kriteria']?></label>									
 									<input type="hidden" value="<?php echo $ktr['id_kriteria']?>" name="id_kriteria<?php echo $ktr['id_kriteria']?>">
-									<select class="form-control select2" style="width: 100%;" name="id_rentang<?php  echo $ktr['id_kriteria'] ?>">
+									<select class="form-control select2" style="width: 100%;" name="id_rentang<?php  echo $ktr['id_kriteria'] ?>" required>
 										<option value=""></option>
 										<?php foreach ($rentang_nilai as $rn) { ?>
 											<?php if ($rn['id_kriteria'] == $ktr['id_kriteria']) { ?>

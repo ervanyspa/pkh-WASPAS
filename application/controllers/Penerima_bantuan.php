@@ -122,8 +122,6 @@ class Penerima_bantuan extends CI_Controller {
 
 	public function delete_penerima($id_penerima)			
 	{		
-		$this->db->delete('kuisioner', array('id_penerima_bantuan' => $id_penerima));		
-		$this->db->delete('detail_periode', array('id_penerima_bantuan' => $id_penerima));
 		$this->db->delete('penerima_bantuan', array('id_penerima_bantuan' => $id_penerima));
 	}
 
