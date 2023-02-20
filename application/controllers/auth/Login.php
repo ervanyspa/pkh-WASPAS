@@ -39,20 +39,21 @@ class Login extends CI_Controller
                 redirect('auth/login');
             } else {
                 $this->session->set_userdata('id_petugas', $auth->id_petugas);
-				$this->session->set_userdata('nama', $auth->nama);
+                $this->session->set_userdata('nama', $auth->nama);
                 $this->session->set_userdata('username', $auth->username);
                 $this->session->set_userdata('password', $auth->password);
                 $this->session->set_userdata('nohp', $auth->nohp);
                 $this->session->set_userdata('alamat', $auth->alamat);
                 $this->session->set_userdata('foto', $auth->foto);
                 $this->session->set_userdata('level', $auth->level);
-				$this->session->set_flashdata(
-					'berhasil_dashboard',
-					'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+                $this->session->set_userdata('status', $auth->status);
+                $this->session->set_flashdata(
+                    'berhasil_dashboard',
+                    '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 								<script type ="text/JavaScript">  
 								swal("Sukses","Berhasil Login","success"); 
 								</script>'
-				);
+                );
                 redirect('/');
                 // switch ($auth->role) {
                 // 	case :

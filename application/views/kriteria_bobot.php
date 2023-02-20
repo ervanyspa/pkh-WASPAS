@@ -7,7 +7,9 @@
 					<div class="card">
 						<div class="card-header d-flex justify-content-between">
 							<h4>Data Kriteria dan Bobot</h4>
+							<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 							<div class="d-flex "><a href="#" class="btn btn-icon icon-left btn-success" data-toggle="modal" data-target="#tambahKriteria"><i class="fas fa-plus"></i> Tambah Data</a></div>
+							<?php } ?>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -24,8 +26,8 @@
 									</thead>
 									<tbody>
 										<?php
-										$no = 1;
-										foreach ($kriteria as $ktr) { ?>
+                                        $no = 1;
+foreach ($kriteria as $ktr) { ?>
 											<tr id="<?= $ktr['id_kriteria'] ?>">
 												<td><?= $no++ ?></td>
 												<td><?= $ktr['nama_kode'] ?></td>
@@ -34,11 +36,13 @@
 												<td><?= $ktr['bobot'] ?></td>
 												<td>
 													<a title="Detail" href="#" class="btn btn-icon btn-sm btn-warning" data-toggle="modal" data-target="#lihatKriteria<?php echo $ktr['id_kriteria'] ?>"><i class="fas fa-info"></i></a>
+													<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 													<a title="Edit Kriteria" href="#" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editDataKriteria<?php echo $ktr['id_kriteria'] ?>"><i class="fas fa-pen"></i></a>
 													<a title="Edit Rentang Nilai" href="#" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editDataRentang<?php echo $ktr['id_kriteria'] ?>"><i class="fas fa-pen"></i></a>
 													<button title="Delete" class="btn btn-icon btn-sm btn-danger remove">
 														<i class="fas fa-trash"></i>
 													</button>
+													<?php } ?>
 												</td>
 											</tr>
 										<?php } ?>
@@ -255,8 +259,8 @@
 								<label>Rentang Nilai</label>
 								<div class="form-row">
 									<?php $ai = 1;
-									foreach ($rentang_nilai as $rn) {
-										if ($rn['id_kriteria'] == $ktr['id_kriteria']) { ?>
+	    foreach ($rentang_nilai as $rn) {
+	        if ($rn['id_kriteria'] == $ktr['id_kriteria']) { ?>
 											<div class="form-group col-md-8">
 												<input type="text" class="form-control" value="<?= $rn['jenis_rentang'] ?>" name="jenis_rentang<?= $ai ?>" required>
 												<input type="hidden" value="<?= $rn['id_rentang'] ?>" name="id_rentang<?= $ai ?>">
@@ -265,8 +269,8 @@
 												<input type="text" class="form-control" value="<?= $rn['nilai'] ?>" name="nilai<?= $ai ?>" required>
 											</div>
 									<?php $ai++;
-										}
-									} ?>
+	        }
+	    } ?>
 								</div>
 							</div>
 							<div class="form-group align-right">

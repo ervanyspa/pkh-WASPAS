@@ -15,6 +15,11 @@
 								<div class="author-box-name">
 									<a href="#"><?= $petugas['nama'] ?></a>
 								</div>
+							<?php if ($this->session->userdata('status') == 'Aktif') { ?>
+								<span class="badge badge-success">Aktif</span>
+								<?php } else { ?>
+									<span class="badge badge-danger">Pasif</span>
+								<?php } ?>
 								<div class="author-box-job"><?= $petugas['level'] ?></div>
 							</div>
 							<div class="d-flex justify-content-center">

@@ -7,7 +7,9 @@
 					<div class="card">
 						<div class="card-header d-flex justify-content-between">
 							<h4>Periode Graduasi</h4>
+							<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 							<div class="d-flex "><a href="#" class="btn btn-icon icon-left btn-success" data-toggle="modal" data-target="#tambahDataPeriode"><i class="fas fa-plus"></i> Tambah Data</a></div>
+							<?php } ?>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -18,18 +20,21 @@
 											<th>Nama Periode</th>
 											<th>Tanggal Dimulai</th>
 											<th>Tanggal Berakhir</th>
+											<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 											<th>Aksi</th>
+											<?php } ?>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
-										$i = 1;
-										foreach ($periode as $prd) { ?>
+                                        $i = 1;
+foreach ($periode as $prd) { ?>
 											<tr id="<?= $prd['id_periode'] ?>">
 												<td><?= $i++ ?></td>
 												<td><?= $prd['nama_periode'] ?></td>
 												<td><?= $prd['tgl_dimulai'] ?></td>
 												<td><?= $prd['tgl_berakhir'] ?></td>
+												<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 												<td>
 													<a href="#" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editDataPeriode<?php echo $prd['id_periode'] ?>"><i class="fas fa-pen"></i></a>
 													<!-- <a href="#" class="btn btn-icon btn-sm btn-danger remove"><i class="fas fa-trash"></i></a> -->
@@ -37,6 +42,7 @@
                                                     <i class="fas fa-trash"></i>
                                                 </button>
 												</td>
+												<?php } ?>
 											</tr>
 										<?php } ?>
 									</tbody>

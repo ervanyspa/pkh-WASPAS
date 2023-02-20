@@ -10,13 +10,15 @@
 							<div class="p-2 align-right">
 								<h6>Total</h6>
 								<?php $jumlahcl = 0;
-							foreach ($calon as $cl) {
-								$jumlahcl ++;
-							} ?>
+foreach ($calon as $cl) {
+    $jumlahcl ++;
+} ?>
 								<h6><?= $jumlahcl ?></h6>
 							</div>
+							<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 							<div class="p-2"><a href="#" class="btn btn-icon icon-left btn-success" data-toggle="modal" data-target="#tambahPesertaGraduasi"><i class="fas fa-plus"></i> Tambah Data</a></div>
 							<div class="p-2"><a href="<?= base_url() ?>peserta_graduasi/proses_penilaian" class="btn btn-icon icon-left btn-warning"></i> Proses Penilaian</a></div>
+							<?php } ?>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -28,12 +30,14 @@
 											<th>Nama</th>
 											<th>Periode</th>
 											<th>Status Penilaian</th>
+											<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 											<th>Aksi</th>
+											<?php } ?>
 										</tr>
 									</thead>
 									<tbody>
 										<?php $no = 1;
-										foreach ($penerima as $prm) { ?>
+foreach ($penerima as $prm) { ?>
 										<tr id="<?= $prm['id_detail_periode'] ?>">
 											<td><?= $no++ ?></td>
 											<td><?= $prm['nama'] ?></td>
@@ -46,10 +50,12 @@
 													<span class="badge badge-success">Sudah Dinilai</span>
 												<?php } ?>
 											</td>
+											<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 											<td>
 												<a href="#" title="Edit" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editPesertaGraduasi<?php echo $prm['id_detail_periode'] ?>"><i class="fas fa-pen"></i></a>
 												<a href="#" title="Delete" class="btn btn-icon btn-sm btn-danger remove"><i class="fas fa-trash"></i></a>
 											</td>
+											<?php } ?>
 										</tr>
 										<?php } ?>
 									</tbody>

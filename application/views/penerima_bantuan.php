@@ -7,7 +7,9 @@
 					<div class="card">
 						<div class="card-header d-flex justify-content-between">
 							<h4>Data Penerima Bantuan</h4>
+							<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 							<div class="d-flex "><a href="#" class="btn btn-icon icon-left btn-success" data-toggle="modal" data-target="#tambahPenerimaBantuan"><i class="fas fa-plus"></i> Tambah Data</a></div>
+							<?php } ?>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -21,13 +23,15 @@
 											<th style="width:10%">Angkatan</th>
 											<th style="width:10%">Kategori</th>
 											<th style="width:10%">Status</th>
+											<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 											<th style="width:10%">Aksi</th>
+											<?php } ?>
 										</tr>
 									</thead>
 									<tbody>
 										<?php
-										$no = 1;
-										foreach ($penerima as $prm) { ?>
+                                        $no = 1;
+foreach ($penerima as $prm) { ?>
 											<tr id="<?= $prm['id_penerima_bantuan'] ?>">
 												<td><?= $no++ ?></td>
 												<td><?= $prm['nik'] ?></td>
@@ -42,10 +46,12 @@
 														<span class="badge badge-danger"><?= $prm['status_bantuan'] ?></span>
 													<?php } ?>
 												</td>
+												<?php if ($this->session->userdata('status') == 'Aktif') { ?>
 												<td>
 													<a href="#" class="btn btn-icon btn-sm btn-info" data-toggle="modal" data-target="#editPenerimaBantuan<?= $prm['id_penerima_bantuan'] ?>"><i class="fas fa-pen"></i></a>
 													<button class="btn btn-icon btn-sm btn-danger remove"><i class="fas fa-trash"></i></button>
 												</td>
+												<?php } ?>
 											</tr>
 										<?php } ?>
 									</tbody>
