@@ -40,8 +40,8 @@ foreach ($calon as $cl) {
 foreach ($penerima as $prm) { ?>
 										<tr id="<?= $prm['id_detail_periode'] ?>">
 											<td><?= $no++ ?></td>
-											<td><?= $prm['nama'] ?></td>
 											<td><?= $prm['nik'] ?></td>
+											<td><?= $prm['nama'] ?></td>
 											<td><?= $prm['nama_periode'] ?></td>
 											<td>
 												<?php if ($prm['total'] == 0) { ?>
