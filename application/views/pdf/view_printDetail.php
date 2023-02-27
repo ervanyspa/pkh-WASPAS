@@ -26,32 +26,32 @@
 	<body>
 		<div align="center" style="margin-bottom: 5px;">
 			<h2 style="margin-top: 0px; margin-bottom: 0px;">HASIL REKOMENDASI GRADUASI PKH</h2>
-			<h2 style="margin-top: 0px; margin-bottom: 0px;">DESA SUGIHWARAS</h2>
-			<?php function tgl_indo($tgl){
-				$bulan=array(
-					1=>'Januari',
-					'Februari',
-					'Maret',
-					'April',
-					'Mei',
-					'Juni',
-					'Juli',
-					'Agustus',
-					'September',
-					'Oktober',
-					'November',
-					'Desember'
-				);
+			<h2 style="margin-top: 0px; margin-bottom: 0px;">DESA UTERAN</h2>
+			<?php function tgl_indo($tgl)
+			{
+			    $bulan=array(
+			        1=>'Januari',
+			        'Februari',
+			        'Maret',
+			        'April',
+			        'Mei',
+			        'Juni',
+			        'Juli',
+			        'Agustus',
+			        'September',
+			        'Oktober',
+			        'November',
+			        'Desember'
+			    );
 
-				$pecahkan=explode('-', $tgl);
-				return $pecahkan[2]. ' '. $bulan[(int)$pecahkan[1]]. ' '. $pecahkan[0];
+			    $pecahkan=explode('-', $tgl);
+			    return $pecahkan[2]. ' '. $bulan[(int)$pecahkan[1]]. ' '. $pecahkan[0];
 
-				// Variabel pecahkan 0 = tanggal
-				// variabel pecahkan 1 = bulan
-				// variabel pecahkan 2 = tahun
-
+			    // Variabel pecahkan 0 = tanggal
+			    // variabel pecahkan 1 = bulan
+			    // variabel pecahkan 2 = tahun
 			} ?>
-			<?php foreach ($periode as $prd ) {?>
+			<?php foreach ($periode as $prd) {?>
 				<h2 style="margin-top: 0px; margin-bottom: 0px;"><?php echo $prd['nama_periode']?> </h2>
 				<h3 style="margin-top: 0px; margin-bottom: 0px;">(<?php echo tgl_indo($prd['tgl_dimulai']);?> - <?php echo tgl_indo($prd['tgl_berakhir']);?>)</h3>
 			<?php }?>
@@ -76,31 +76,30 @@
 							<th style="text-align: center;">No</th>
 							<th style="text-align: center;">Nama</th>
 							<?php
-							$no = 1;
-							foreach ($kriteria as $ktr){?>
+			                $no = 1;
+			foreach ($kriteria as $ktr) {?>
 								<th style="text-align: center;"><?php echo $ktr['nama_kode'] ?></th>
 							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
-						$no = 1;
-						foreach($penerima as $prm) { ?>
+						<?php
+                        $no = 1;
+			foreach ($penerima as $prm) { ?>
 							<tr>
 								<td style="text-align: center;"><?= $no++; ?></td>
 								<td><?= $prm['nama'] ?></td>
 
-								<?php 
-								$cek = 0;
+								<?php
+			        $cek = 0;
 
-								foreach($kriteria as $ktr) {
-
-									foreach($kuisioner as $kuis) {
-										if($prm['id_detail_periode'] == $kuis['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria'] ) {
-											$cek++;
-											$nilai = $kuis['nilai'];
-										}
-									} if($cek > 0) { ?>
+			    foreach ($kriteria as $ktr) {
+			        foreach ($kuisioner as $kuis) {
+			            if ($prm['id_detail_periode'] == $kuis['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria']) {
+			                $cek++;
+			                $nilai = $kuis['nilai'];
+			            }
+			        } if ($cek > 0) { ?>
 
 										<td style="text-align: center;" ><?= $nilai ?></td>
 
@@ -129,8 +128,8 @@
 					<thead>
 						<tr>
 							<?php
-							$no = 0;
-							foreach ($kriteria as $ktr){?>
+                            $no = 0;
+			foreach ($kriteria as $ktr) {?>
 
 								<th style="text-align: center;"><?php echo $ktr['nama_kode'] ?></th>
 
@@ -139,9 +138,9 @@
 					</thead>
 					<tbody>
 						<?php
-						$no = 0;
-						foreach ($kriteria as $ktr){?>
-							<?php if($ktr['atribut'] == 'Benefit') { ?>
+                        $no = 0;
+			foreach ($kriteria as $ktr) {?>
+							<?php if ($ktr['atribut'] == 'Benefit') { ?>
 								<td style="text-align: center;" ><?php  echo $ktr['max']->nilai ?></td>
 							<?php } else { ?>
 								<td style="text-align: center;" ><?php  echo $ktr['min']->nilai ?></td>
@@ -168,40 +167,38 @@
 							<th style="text-align: center;">No</th>
 							<th style="text-align: center;">Nama</th>
 							<?php
-							$no = 1;
-							foreach ($kriteria as $ktr){?>
+			    $no = 1;
+			foreach ($kriteria as $ktr) {?>
 								<th style="text-align: center;"><?php echo $ktr['nama_kode'] ?></th>
 							<?php } ?>
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
-						$no = 1;
-						foreach($penerima as $prm) { ?>
+						<?php
+                        $no = 1;
+			foreach ($penerima as $prm) { ?>
 							<tr>
 								<td style="text-align: center;"><?= $no++; ?></td>
 								<td ><?= $prm['nama'] ?></td>
 
-								<?php 
+								<?php
 
-								foreach($kriteria as $ktr) {
-									$cek = 0;
-									foreach($kuisioner as $kuis) {
-										if($prm['id_detail_periode'] == $kuis['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria'] ) {
-											$cek++;
-											$nilai = $kuis['nilai'];
+			        foreach ($kriteria as $ktr) {
+			            $cek = 0;
+			            foreach ($kuisioner as $kuis) {
+			                if ($prm['id_detail_periode'] == $kuis['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria']) {
+			                    $cek++;
+			                    $nilai = $kuis['nilai'];
 
-											if($ktr['atribut'] == 'Benefit'){
-												$max = $ktr['max']->nilai;
-												$normalisasi = $nilai/$max;
-											} else {
-												$min = $ktr['min']->nilai;
-												$normalisasi = $min/$nilai;
-											}
-
-
-										}
-									} if ($cek > 0) { ?>
+			                    if ($ktr['atribut'] == 'Benefit') {
+			                        $max = $ktr['max']->nilai;
+			                        $normalisasi = $nilai/$max;
+			                    } else {
+			                        $min = $ktr['min']->nilai;
+			                        $normalisasi = $min/$nilai;
+			                    }
+			                }
+			            } if ($cek > 0) { ?>
 										<td style="text-align: center;"><?= number_format($normalisasi, 2) ?></td>
 									<?php } ?>
 								<?php } ?>
@@ -234,58 +231,54 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
-						$no = 1;
-						function cariMultiplikasi($array) {
-							$output = 1;
+						<?php
+                        $no = 1;
+			function cariMultiplikasi($array)
+			{
+			    $output = 1;
 
-							foreach ($array as $x) {
-								$output *= $x; 
-							}
-							
-							return $output;
-						}
-						foreach($penerima as $prm) { ?>
+			    foreach ($array as $x) {
+			        $output *= $x;
+			    }
+
+			    return $output;
+			}
+			foreach ($penerima as $prm) { ?>
 							<tr>
 								<td style="text-align: center;"><?= $no++; ?></td>
 								<td ><?= $prm['nama'] ?></td>
 
-								<?php 
-								$perkalian = array(); 
-								$pangkat = array();
+								<?php
+			        $perkalian = array();
+			    $pangkat = array();
 
-								foreach($kriteria as $ktr) {
+			    foreach ($kriteria as $ktr) {
+			        $cek = 0;
+			        foreach ($kuisioner as $kuis) {
+			            if ($prm['id_detail_periode'] == $kuis['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria']) {
+			                $cek++;
+			                $nilai = $kuis['nilai'];
 
-									$cek = 0;
-									foreach($kuisioner as $kuis) {
-										if($prm['id_detail_periode'] == $kuis['id_detail_periode'] && $ktr['id_kriteria'] == $kuis['id_kriteria'] ) {
-											$cek++;
-											$nilai = $kuis['nilai'];
+			                if ($ktr['atribut'] == 'Benefit') {
+			                    $max = $ktr['max']->nilai;
+			                    $normalisasi = $nilai/$max;
+			                    $preferensi  = $normalisasi * $ktr['bobot'];
+			                    $preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
+			                    array_push($perkalian, $preferensi);
+			                    array_push($pangkat, $preferensi2);
+			                } else {
+			                    $min = $ktr['min']->nilai;
+			                    $normalisasi = $min/$nilai;
+			                    $preferensi  = $normalisasi * $ktr['bobot'];
+			                    $preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
+			                    array_push($perkalian, $preferensi);
+			                    array_push($pangkat, $preferensi2);
+			                }
+			            }
+			        }
+			    }
 
-											if($ktr['atribut'] == 'Benefit'){
-												$max = $ktr['max']->nilai;
-												$normalisasi = $nilai/$max;
-												$preferensi  = $normalisasi * $ktr['bobot'];
-												$preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
-												array_push($perkalian, $preferensi);
-												array_push($pangkat, $preferensi2);
-											} else {
-												$min = $ktr['min']->nilai;
-												$normalisasi = $min/$nilai;
-												$preferensi  = $normalisasi * $ktr['bobot'];
-												$preferensi2 = pow($normalisasi, $ktr['bobot'])  ;
-												array_push($perkalian, $preferensi);
-												array_push($pangkat, $preferensi2);
-											}
-
-
-										}
-									} 
-
-
-								}
-								
-								$total = 0.5 * array_sum($perkalian) + 0.5 * cariMultiplikasi($pangkat); ?>
+			    $total = 0.5 * array_sum($perkalian) + 0.5 * cariMultiplikasi($pangkat); ?>
 
 
 								<td style="text-align: center;"><?php echo number_format($total, 3) ?></td>
